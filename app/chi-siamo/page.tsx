@@ -1,0 +1,111 @@
+import type { Metadata } from 'next'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import PageHeader from '@/components/page-header'
+import FinalCTA from '@/components/final-cta'
+
+export const metadata: Metadata = {
+  title: 'Chi Siamo',
+  description:
+    'Scopri la storia, i valori e il team di Rete Italiana Disabili ETS. Un\'associazione nata dalla passione per i diritti e la dignità delle persone con disabilità.',
+  alternates: { canonical: '/chi-siamo' },
+}
+
+const VALUES = [
+  { title: 'Dignità', description: 'Ogni persona ha un valore intrinseco che va riconosciuto e rispettato incondizionatamente.' },
+  { title: 'Partecipazione', description: 'Le persone con disabilità non sono beneficiarie passive, ma protagoniste del cambiamento.' },
+  { title: 'Trasparenza', description: 'Rendiamo pubblici i nostri bilanci e le nostre attività perché la fiducia si guadagna.' },
+  { title: 'Innovazione', description: 'Cerchiamo soluzioni nuove a problemi antichi, usando la tecnologia al servizio dell\'uomo.' },
+]
+
+export default function ChiSiamoPage() {
+  return (
+    <>
+      <Header />
+      <main id="main-content" tabIndex={-1}>
+        <PageHeader
+          eyebrow="La nostra storia"
+          title="Chi siamo e perché esistiamo."
+          description="Rete Italiana Disabili ETS nasce nel 2010 da un gruppo di persone con disabilità, famiglie e professionisti stanchi di aspettare cambiamenti che non arrivavano."
+          breadcrumbs={[{ label: 'Chi Siamo' }]}
+        />
+
+        {/* Storia */}
+        <section aria-labelledby="storia-heading" className="py-20 bg-white">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <div>
+                <h2 id="storia-heading" className="text-3xl font-extrabold text-[#1a3a6b] mb-6">
+                  Una storia nata dall&apos;esperienza diretta
+                </h2>
+                <div className="prose prose-lg max-w-none text-[#1a3a6b]/70 space-y-4">
+                  <p>
+                    Nel 2010, un piccolo gruppo di persone si riunì a Milano con un obiettivo chiaro:
+                    creare una rete nazionale capace di dare voce a chi troppo spesso non viene ascoltato.
+                    Non esperti calati dall&apos;alto, ma persone che vivevano sulla propria pelle le difficoltà
+                    quotidiane di una società ancora lontana dall&apos;essere davvero inclusiva.
+                  </p>
+                  <p>
+                    In pochi anni siamo cresciuti fino a diventare uno dei riferimenti nazionali per
+                    le politiche sulla disabilità, partecipando ai tavoli istituzionali, collaborando
+                    con le università e portando la nostra esperienza in tutta Italia.
+                  </p>
+                  <p>
+                    Oggi siamo oltre 1.240 soci attivi, 86 partner istituzionali e un team di 30 professionisti
+                    e volontari dedicati. Ma la nostra essenza è rimasta la stessa: essere al fianco
+                    delle persone, sempre.
+                  </p>
+                </div>
+              </div>
+
+              {/* Timeline milestones */}
+              <div>
+                <h3 className="text-xl font-bold text-[#1a3a6b] mb-6">Le tappe principali</h3>
+                <ol className="relative border-l-2 border-[#1a3a6b]/15 pl-6 flex flex-col gap-6" role="list">
+                  {[
+                    { year: '2010', text: 'Fondazione a Milano da 12 soci fondatori' },
+                    { year: '2012', text: 'Riconoscimento come Ente del Terzo Settore' },
+                    { year: '2015', text: 'Lancio del primo programma nazionale di accessibilità digitale' },
+                    { year: '2018', text: 'Partecipazione al tavolo ONU sull\'attuazione della CRPD in Italia' },
+                    { year: '2020', text: 'Avvio del progetto "Sport Per Tutti" in 20 comuni' },
+                    { year: '2023', text: 'Superato il traguardo dei 1.000 soci attivi' },
+                  ].map((milestone) => (
+                    <li key={milestone.year} className="relative">
+                      <div className="absolute -left-9 w-4 h-4 rounded-full bg-[#1a3a6b] border-4 border-white shadow" aria-hidden="true" />
+                      <time dateTime={milestone.year} className="text-xs font-bold text-[#1e9ed6] uppercase tracking-widest">
+                        {milestone.year}
+                      </time>
+                      <p className="text-[#1a3a6b]/75 mt-1">{milestone.text}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Values */}
+        <section aria-labelledby="values-heading" className="py-20 bg-[#F8FAFC]">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 id="values-heading" className="text-3xl font-extrabold text-[#1a3a6b]">
+                I nostri valori fondanti
+              </h2>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {VALUES.map((v) => (
+                <article key={v.title} className="p-7 bg-white rounded-2xl border border-[#1a3a6b]/8 shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="font-bold text-[#1a3a6b] text-xl mb-3">{v.title}</h3>
+                  <p className="text-[#1a3a6b]/65 leading-relaxed">{v.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <FinalCTA />
+      </main>
+      <Footer />
+    </>
+  )
+}
