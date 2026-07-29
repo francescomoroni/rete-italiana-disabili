@@ -1,7 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { PARTNERS } from '@/lib/data'
+import { SPONSORS } from '@/lib/data'
 
 export default function PartnersSection() {
   return (
@@ -18,32 +19,34 @@ export default function PartnersSection() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-sm font-semibold text-[#1a3a6b]/50 uppercase tracking-widest">
-            I nostri partner istituzionali
+            Sponsor e partner
           </p>
         </motion.div>
 
         <ul
-          className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6"
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4"
           role="list"
-          aria-label="Partner istituzionali di Rete Italiana Disabili ETS"
+          aria-label="Sponsor e partner di Rete Italiana Disabili ETS"
         >
-          {PARTNERS.map((partner, i) => (
+          {SPONSORS.map((sponsor, i) => (
             <motion.li
-              key={partner.name}
+              key={sponsor.logo}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
             >
-              <a
-                href={partner.href}
-                className="px-5 py-3 rounded-xl bg-white border border-[#1a3a6b]/10 text-[#1a3a6b]/60 font-semibold text-sm hover:text-[#1a3a6b] hover:border-[#1a3a6b]/30 hover:shadow-md transition-all"
-                aria-label={`Sito web di ${partner.name}`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {partner.name}
-              </a>
+              <article className="flex items-center justify-center h-20 sm:h-24 p-3 rounded-xl border border-[#1a3a6b]/10 bg-white hover:border-[#1a3a6b]/20 hover:shadow-sm transition-all">
+                <div className="relative w-full h-10 sm:h-12">
+                  <Image
+                    src={sponsor.logo}
+                    alt={`Logo di ${sponsor.name}`}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 640px) 30vw, (max-width: 1024px) 18vw, 150px"
+                  />
+                </div>
+              </article>
             </motion.li>
           ))}
         </ul>
