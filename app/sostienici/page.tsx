@@ -35,21 +35,25 @@ export default function SostieniciPage() {
             </h2>
             <div className="bg-[#F8FAFC] rounded-2xl p-8 border border-[#1a3a6b]/8 text-left">
               <dl className="flex flex-col gap-3 text-base">
-                <div className="flex flex-col sm:flex-row sm:justify-between">
-                  <dt className="font-semibold text-[#1a3a6b]">Intestatario</dt>
-                  <dd className="text-[#1a3a6b]/70">Rete Italiana Disabili ETS</dd>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:gap-4">
+                  <dt className="font-semibold text-[#1a3a6b] shrink-0">Intestatario</dt>
+                  <dd className="text-[#1a3a6b]/70 sm:text-right">
+                    RETE ITALIANA DISABILI — Filiale Ciampino
+                  </dd>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between">
-                  <dt className="font-semibold text-[#1a3a6b]">IBAN</dt>
-                  <dd className="text-[#1a3a6b]/70 font-mono">IT00 X000 0000 0000 0000 0000 000</dd>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:gap-4">
+                  <dt className="font-semibold text-[#1a3a6b] shrink-0">IBAN</dt>
+                  <dd className="text-[#1a3a6b]/70 font-mono sm:text-right break-all">
+                    IT63I0503439550000000011249
+                  </dd>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between">
-                  <dt className="font-semibold text-[#1a3a6b]">Causale</dt>
-                  <dd className="text-[#1a3a6b]/70">Donazione liberale</dd>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:gap-4">
+                  <dt className="font-semibold text-[#1a3a6b] shrink-0">Causale</dt>
+                  <dd className="text-[#1a3a6b]/70 sm:text-right">Donazione liberale</dd>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between">
-                  <dt className="font-semibold text-[#1a3a6b]">Codice Fiscale</dt>
-                  <dd className="text-[#1a3a6b]/70">00000000000</dd>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:gap-4">
+                  <dt className="font-semibold text-[#1a3a6b] shrink-0">Codice Fiscale</dt>
+                  <dd className="text-[#1a3a6b]/70 sm:text-right">94083440589</dd>
                 </div>
               </dl>
             </div>

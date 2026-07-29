@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import PageHeader from '@/components/page-header'
-import { Mail, Phone, MapPin, Clock, Globe, Share2, MessageCircle } from 'lucide-react'
+import { SOCIAL_LINKS } from '@/components/social-icons'
+import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Contatti',
@@ -10,6 +11,39 @@ export const metadata: Metadata = {
     'Contatta Rete Italiana Disabili ETS: email, telefono, indirizzo. Siamo qui per rispondere alle tue domande su diritti, servizi e come diventare socio.',
   alternates: { canonical: '/contatti' },
 }
+
+const CONTACT_ITEMS = [
+  {
+    icon: Phone,
+    label: 'Telefono',
+    value: '+39 333 296 7651',
+    href: 'tel:+393332967651',
+  },
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'inforeteitalianadisabili@gmail.com',
+    href: 'mailto:inforeteitalianadisabili@gmail.com',
+  },
+  {
+    icon: Mail,
+    label: 'PEC',
+    value: 'reteitalianadisabili@pec.it',
+    href: 'mailto:reteitalianadisabili@pec.it',
+  },
+  {
+    icon: MapPin,
+    label: 'Sede legale',
+    value: 'Via Liberiana 17, 00185 Roma (RM)',
+    href: null,
+  },
+  {
+    icon: Clock,
+    label: 'Orari',
+    value: 'Lun – Ven: 9:00 – 18:00',
+    href: null,
+  },
+]
 
 export default function ContattiPage() {
   return (
@@ -34,12 +68,7 @@ export default function ContattiPage() {
                 </h2>
 
                 <address className="not-italic flex flex-col gap-5">
-                  {[
-                    { icon: Mail, label: 'Email', value: 'info@reteitalianadisabili.it', href: 'mailto:info@reteitalianadisabili.it' },
-                    { icon: Phone, label: 'Telefono', value: '+39 02 0000 0000', href: 'tel:+390200000000' },
-                    { icon: MapPin, label: 'Sede legale', value: 'Via Roma 1, 20100 Milano (MI)', href: null },
-                    { icon: Clock, label: 'Orari', value: 'Lun – Ven: 9:00 – 18:00', href: null },
-                  ].map((item) => (
+                  {CONTACT_ITEMS.map((item) => (
                     <div key={item.label} className="flex items-start gap-4">
                       <div className="w-11 h-11 rounded-xl bg-[#e8edf5] flex items-center justify-center shrink-0">
                         <item.icon className="w-5 h-5 text-[#1a3a6b]" aria-hidden="true" />
@@ -51,7 +80,7 @@ export default function ContattiPage() {
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="text-[#1a3a6b] font-medium hover:text-[#2952a3] transition-colors"
+                            className="text-[#1a3a6b] font-medium hover:text-[#2952a3] transition-colors break-all"
                           >
                             {item.value}
                           </a>
@@ -66,20 +95,16 @@ export default function ContattiPage() {
                 <div className="mt-8 pt-8 border-t border-[#1a3a6b]/8">
                   <p className="text-sm font-bold text-[#1a3a6b] mb-4">Seguici sui social</p>
                   <div className="flex gap-3">
-                    {[
-                      { icon: Globe, label: 'Facebook', href: 'https://facebook.com' },
-                      { icon: Share2, label: 'Instagram', href: 'https://instagram.com' },
-                      { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me' },
-                    ].map((social) => (
+                    {SOCIAL_LINKS.map(({ label, href, Icon }) => (
                       <a
-                        key={social.label}
-                        href={social.href}
+                        key={label}
+                        href={href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-10 h-10 rounded-xl bg-[#e8edf5] flex items-center justify-center text-[#1a3a6b] hover:bg-[#1a3a6b] hover:text-white transition-all"
-                        aria-label={`Seguici su ${social.label}`}
+                        aria-label={`Seguici su ${label}`}
                       >
-                        <social.icon className="w-4.5 h-4.5" aria-hidden="true" />
+                        <Icon className="w-5 h-5" />
                       </a>
                     ))}
                   </div>
@@ -104,6 +129,7 @@ export default function ContattiPage() {
                       </label>
                       <input
                         id="nome"
+                        name="nome"
                         type="text"
                         autoComplete="given-name"
                         required
@@ -117,6 +143,7 @@ export default function ContattiPage() {
                       </label>
                       <input
                         id="cognome"
+                        name="cognome"
                         type="text"
                         autoComplete="family-name"
                         className="w-full px-4 py-3 border-2 border-[#1a3a6b]/15 rounded-xl text-[#1a3a6b] focus:border-[#1a3a6b] focus:outline-none transition-colors bg-white text-base"
@@ -131,11 +158,25 @@ export default function ContattiPage() {
                     </label>
                     <input
                       id="email-contatto"
+                      name="email"
                       type="email"
                       autoComplete="email"
                       required
                       className="w-full px-4 py-3 border-2 border-[#1a3a6b]/15 rounded-xl text-[#1a3a6b] focus:border-[#1a3a6b] focus:outline-none transition-colors bg-white text-base"
                       aria-required="true"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="telefono-contatto" className="block text-sm font-semibold text-[#1a3a6b] mb-1.5">
+                      Telefono
+                    </label>
+                    <input
+                      id="telefono-contatto"
+                      name="telefono"
+                      type="tel"
+                      autoComplete="tel"
+                      className="w-full px-4 py-3 border-2 border-[#1a3a6b]/15 rounded-xl text-[#1a3a6b] focus:border-[#1a3a6b] focus:outline-none transition-colors bg-white text-base"
                     />
                   </div>
 
@@ -146,15 +187,20 @@ export default function ContattiPage() {
                     </label>
                     <select
                       id="oggetto"
+                      name="oggetto"
                       required
                       className="w-full px-4 py-3 border-2 border-[#1a3a6b]/15 rounded-xl text-[#1a3a6b] focus:border-[#1a3a6b] focus:outline-none transition-colors bg-white text-base"
                       aria-required="true"
+                      defaultValue=""
                     >
-                      <option value="">Seleziona un argomento</option>
+                      <option value="" disabled>
+                        Seleziona un argomento
+                      </option>
                       <option value="informazioni">Richiesta informazioni generali</option>
                       <option value="iscrizione">Iscrizione come socio</option>
                       <option value="donazione">Donazioni</option>
                       <option value="progetti">Collaborazione su progetti</option>
+                      <option value="eventi">Eventi</option>
                       <option value="media">Richiesta media/stampa</option>
                       <option value="altro">Altro</option>
                     </select>
@@ -167,6 +213,7 @@ export default function ContattiPage() {
                     </label>
                     <textarea
                       id="messaggio"
+                      name="messaggio"
                       rows={5}
                       required
                       className="w-full px-4 py-3 border-2 border-[#1a3a6b]/15 rounded-xl text-[#1a3a6b] focus:border-[#1a3a6b] focus:outline-none transition-colors bg-white text-base resize-none"
@@ -178,6 +225,7 @@ export default function ContattiPage() {
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input
                         type="checkbox"
+                        name="privacy"
                         required
                         className="w-4 h-4 mt-1 accent-[#1a3a6b]"
                         aria-required="true"

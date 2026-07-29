@@ -5,10 +5,9 @@ import TrustBar from '@/components/trust-bar'
 import ImpactNumbers from '@/components/impact-numbers'
 import MissionSection from '@/components/mission-section'
 import WhoWeHelp from '@/components/who-we-help'
+import ServicesSection from '@/components/services-section'
 import ProjectsSection from '@/components/projects-section'
-import NewsSection from '@/components/news-section'
 import EventsSection from '@/components/events-section'
-import MembershipCTA from '@/components/membership-cta'
 import DonationsSection from '@/components/donations-section'
 import TestimonialsSection from '@/components/testimonials-section'
 import PartnersSection from '@/components/partners-section'
@@ -32,10 +31,9 @@ export default function HomePage() {
         <ImpactNumbers />
         <MissionSection />
         <WhoWeHelp />
-        <ProjectsSection />
-        <NewsSection />
+        <ServicesSection />
         <EventsSection />
-        <MembershipCTA />
+        <ProjectsSection />
         <DonationsSection />
         <TestimonialsSection />
         <PartnersSection />

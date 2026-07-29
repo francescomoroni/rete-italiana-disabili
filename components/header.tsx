@@ -52,7 +52,10 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav aria-label="Navigazione principale" className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.slice(0, 7).map((link) => (
+            {NAV_LINKS
+              .filter((link) => link.href !== '/sostienici')
+              .slice(0, 7)
+              .map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -105,7 +108,9 @@ export default function Header() {
         )}
       >
         <nav className="max-w-[1280px] mx-auto px-4 py-4 flex flex-col gap-1">
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS
+            .filter((link) => link.href !== '/sostienici')
+            .map((link) => (
             <Link
               key={link.href}
               href={link.href}

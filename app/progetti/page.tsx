@@ -8,7 +8,7 @@ import FinalCTA from '@/components/final-cta'
 export const metadata: Metadata = {
   title: 'Progetti',
   description:
-    'Tutti i progetti di Rete Italiana Disabili ETS: accessibilità digitale, sport adattato, inclusione lavorativa, educazione inclusiva e molto altro.',
+    'Dal 2020 abbiamo lavorato a 50 progetti di cooperazione in rete e inclusione sociale.',
   alternates: { canonical: '/progetti' },
 }
 
@@ -19,9 +19,8 @@ export default function ProgettiPage() {
       <main id="main-content" tabIndex={-1}>
         <PageHeader
           eyebrow="Cosa facciamo"
-          title="Progetti concreti,
-impatto reale."
-          description="Non solo parole. Ogni progetto nasce da un bisogno reale e si traduce in azioni misurabili che cambiano la vita delle persone."
+          title="I Progetti"
+          description="Dal 2020 abbiamo lavorato a 50 progetti di cooperazione in rete e inclusione sociale."
           breadcrumbs={[{ label: 'Progetti' }]}
         />
         <ProjectsSection />

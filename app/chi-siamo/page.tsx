@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import PageHeader from '@/components/page-header'
+import TeamSection from '@/components/team-section'
+import StatutoSection from '@/components/statuto-section'
 import FinalCTA from '@/components/final-cta'
 
 export const metadata: Metadata = {
@@ -102,6 +104,10 @@ export default function ChiSiamoPage() {
             </div>
           </div>
         </section>
+
+        <TeamSection />
+
+        <StatutoSection />
 
         <FinalCTA />
       </main>

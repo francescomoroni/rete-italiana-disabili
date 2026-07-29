@@ -1,111 +1,227 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, Calendar, Tag } from 'lucide-react'
+import { Calendar, Clock, MapPin, MessageCircle, ArrowRight } from 'lucide-react'
 import { EVENTS } from '@/lib/data'
 
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr)
-  return {
-    day: d.toLocaleDateString('it-IT', { day: '2-digit' }),
-    month: d.toLocaleDateString('it-IT', { month: 'short' }),
-    year: d.toLocaleDateString('it-IT', { year: 'numeric' }),
-    full: d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }),
-  }
-}
+type EventItem = (typeof EVENTS)[number]
 
-export default function EventsSection() {
+function EventCard({ event, index }: { event: EventItem; index: number }) {
+  const isExternal = (href: string) => href.startsWith('http')
+
   return (
-    <section
-      aria-labelledby="events-heading"
-      className="py-20 md:py-28 bg-white"
+    <motion.article
+      className={`overflow-hidden rounded-2xl border border-[#1a3a6b]/10 bg-[#F8FAFC] shadow-sm ${
+        event.featured ? 'ring-2 ring-[#1e9ed6]/25' : ''
+      }`}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.12, duration: 0.6 }}
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
-          <div>
-            <p className="text-[#1e9ed6] font-semibold text-sm uppercase tracking-widest mb-3">
-              In agenda
-            </p>
-            <h2
-              id="events-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] text-balance"
-            >
-              Prossimi eventi
-            </h2>
-          </div>
-          <Link
-            href="/eventi"
-            className="inline-flex items-center gap-2 text-[#1a3a6b] font-semibold hover:gap-3 transition-all group shrink-0"
-            aria-label="Vedi tutti gli eventi"
-          >
-            Tutti gli eventi
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-          </Link>
+      <div className={`grid gap-0 ${event.featured ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-2'}`}>
+        {/* Media */}
+        <div className="relative aspect-[4/5] w-full bg-[#e8edf5] lg:aspect-auto lg:min-h-[420px]">
+          <Image
+            src={event.image}
+            alt={event.imageAlt}
+            fill
+            className="object-contain"
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            priority={event.featured}
+          />
         </div>
 
-        <div className="flex flex-col gap-5">
-          {EVENTS.map((event, i) => {
-            const date = formatDate(event.date)
-            return (
-              <motion.article
-                key={event.id}
-                className="group flex flex-col sm:flex-row gap-5 p-6 rounded-2xl border border-[#1a3a6b]/8 bg-[#F8FAFC] hover:shadow-lg hover:border-[#1a3a6b]/20 transition-all duration-300"
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.6 }}
+        {/* Content */}
+        <div className="flex flex-col gap-5 p-6 sm:p-8">
+          <div>
+            {event.featured && (
+              <span className="mb-3 inline-flex rounded-lg bg-[#1e9ed6] px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                In evidenza
+              </span>
+            )}
+            <p className="text-sm font-semibold uppercase tracking-wide text-[#1e9ed6]">
+              {event.eyebrow}
+            </p>
+            <h3 className="mt-1 text-2xl font-extrabold tracking-tight text-[#1a3a6b] sm:text-3xl">
+              {event.title}
+            </h3>
+          </div>
+
+          <dl className="grid gap-3 text-sm text-[#1a3a6b]/75">
+            <div className="flex items-start gap-2">
+              <Calendar className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9ed6]" aria-hidden="true" />
+              <div>
+                <dt className="sr-only">Data</dt>
+                <dd>
+                  <time dateTime={event.date}>{event.dateLabel}</time>
+                </dd>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9ed6]" aria-hidden="true" />
+              <div>
+                <dt className="sr-only">Orario</dt>
+                <dd>{event.time}</dd>
+              </div>
+            </div>
+            <div className="flex items-start gap-2">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#1e9ed6]" aria-hidden="true" />
+              <div>
+                <dt className="sr-only">Luogo</dt>
+                <dd>{event.location}</dd>
+              </div>
+            </div>
+          </dl>
+
+          <p className="text-base leading-relaxed text-[#1a3a6b]/70">{event.description}</p>
+
+          {'video' in event && event.video && (
+            <div>
+              {'videoCaption' in event && event.videoCaption && (
+                <p className="mb-2 text-sm font-semibold text-[#1a3a6b]">
+                  {event.videoCaption}
+                </p>
+              )}
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                src={event.video}
+                className="aspect-[9/16] w-full max-w-[240px] rounded-lg border border-[#1a3a6b]/10 bg-black"
               >
-                {/* Date badge */}
-                <div
-                  className="flex flex-row sm:flex-col items-center sm:items-center justify-start gap-3 sm:gap-0 shrink-0 w-full sm:w-20"
+                Il tuo browser non supporta la riproduzione video.
+              </video>
+            </div>
+          )}
+
+          {'gallery' in event && event.gallery && event.gallery.length > 0 && (
+            <div>
+              <p className="mb-2 text-sm font-semibold text-[#1a3a6b]">
+                Sfoglia le card dell&apos;iniziativa
+              </p>
+              <ul className="grid grid-cols-4 gap-2" role="list">
+                {event.gallery.map((item) => (
+                  <li key={item.src}>
+                    <a
+                      href={item.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block overflow-hidden rounded-lg border border-[#1a3a6b]/10"
+                    >
+                      <div className="relative aspect-[4/5] w-full bg-[#e8edf5]">
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          className="object-cover transition-transform group-hover:scale-105"
+                          sizes="120px"
+                        />
+                      </div>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="mt-auto flex flex-wrap items-center gap-3 pt-2">
+            {isExternal(event.ctaPrimary.href) ? (
+              <a
+                href={event.ctaPrimary.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1a3a6b] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0f2347]"
+              >
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                {event.ctaPrimary.label}
+              </a>
+            ) : (
+              <Link
+                href={event.ctaPrimary.href}
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1a3a6b] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#0f2347]"
+              >
+                {event.ctaPrimary.label}
+              </Link>
+            )}
+
+            {isExternal(event.ctaSecondary.href) ? (
+              <a
+                href={event.ctaSecondary.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-[#1a3a6b]/15 bg-white px-6 text-sm font-semibold text-[#1a3a6b] transition-colors hover:border-[#1a3a6b]/30 hover:bg-[#e8edf5]"
+              >
+                {event.ctaSecondary.label}
+              </a>
+            ) : (
+              <Link
+                href={event.ctaSecondary.href}
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-[#1a3a6b]/15 bg-white px-6 text-sm font-semibold text-[#1a3a6b] transition-colors hover:border-[#1a3a6b]/30 hover:bg-[#e8edf5]"
+              >
+                {event.ctaSecondary.label}
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.article>
+  )
+}
+
+export default function EventsSection({
+  showAllLink = true,
+  showHeading = true,
+}: {
+  showAllLink?: boolean
+  showHeading?: boolean
+}) {
+  return (
+    <section
+      aria-labelledby={showHeading ? 'events-heading' : undefined}
+      aria-label={showHeading ? undefined : 'Prossimi eventi'}
+      className={`bg-white ${showHeading ? 'py-20 md:py-28' : 'py-12 md:py-16'}`}
+    >
+      <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+        {showHeading && (
+          <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#1e9ed6]">
+                Prossimi eventi
+              </p>
+              <h2
+                id="events-heading"
+                className="text-balance text-3xl font-extrabold text-[#1a3a6b] sm:text-4xl lg:text-5xl"
+              >
+                Vieni a conoscerci di persona
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#1a3a6b]/65">
+                Le occasioni in cui Rete Italiana Disabili scende in campo per costruire comunità,
+                sport e inclusione.
+              </p>
+            </div>
+            {showAllLink && (
+              <Link
+                href="/eventi"
+                className="group inline-flex shrink-0 items-center gap-2 font-semibold text-[#1a3a6b] transition-all hover:gap-3"
+                aria-label="Vedi tutti gli eventi"
+              >
+                Tutti gli eventi
+                <ArrowRight
+                  className="h-5 w-5 transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
-                >
-                  <div className="flex flex-col items-center justify-center w-16 h-16 rounded-2xl bg-[#1a3a6b] text-white">
-                    <span className="text-2xl font-extrabold leading-none">{date.day}</span>
-                    <span className="text-xs font-medium uppercase tracking-wide">{date.month}</span>
-                  </div>
-                  <span className="text-sm text-[#1a3a6b]/50 sm:mt-1">{date.year}</span>
-                </div>
+                />
+              </Link>
+            )}
+          </div>
+        )}
 
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#e8edf5] text-[#1a3a6b] text-xs font-bold uppercase tracking-wide">
-                      <Tag className="w-3 h-3" aria-hidden="true" />
-                      {event.type}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-xl text-[#1a3a6b] mb-2 group-hover:text-[#2952a3] transition-colors">
-                    {event.title}
-                  </h3>
-                  <p className="text-[#1a3a6b]/65 text-base leading-relaxed mb-3">{event.description}</p>
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-[#1a3a6b]/50">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-4 h-4" aria-hidden="true" />
-                      <time dateTime={event.date}>{date.full}</time>
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4" aria-hidden="true" />
-                      {event.location}
-                    </span>
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="flex items-center shrink-0">
-                  <Link
-                    href={event.href}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1a3a6b] text-white font-semibold rounded-xl text-sm hover:bg-[#0f2347] transition-colors whitespace-nowrap"
-                    aria-label={`Iscriviti a ${event.title}`}
-                  >
-                    Iscriviti
-                    <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                  </Link>
-                </div>
-              </motion.article>
-            )
-          })}
+        <div className="flex flex-col gap-8">
+          {EVENTS.map((event, i) => (
+            <EventCard key={event.id} event={event} index={i} />
+          ))}
         </div>
       </div>
     </section>

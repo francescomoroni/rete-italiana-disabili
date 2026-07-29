@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Tag } from 'lucide-react'
+import { ArrowRight, MapPin, Calendar } from 'lucide-react'
 import { PROJECTS, PROJECT_CATEGORIES } from '@/lib/data'
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
@@ -18,14 +18,28 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
   purple: { bg: '#f0ebfa', text: '#7c3aed' },
 }
 
-// Images are now embedded directly in the PROJECTS data objects in lib/data.ts
-
 export default function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState('Tutti')
+  const [imageAttemptByProject, setImageAttemptByProject] = useState<
+    Record<string, number>
+  >({})
 
-  const filtered = activeCategory === 'Tutti'
-    ? PROJECTS
-    : PROJECTS.filter((p) => p.category === activeCategory)
+  const filtered =
+    activeCategory === 'Tutti'
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.year === activeCategory)
+
+  function getImageCandidates(project: (typeof PROJECTS)[number]) {
+    const isPlaceholderCover =
+      typeof project.image === 'string' &&
+      project.image.toLowerCase().endsWith('/cover.jpg')
+
+    return [
+      isPlaceholderCover ? undefined : project.image,
+      project.gallery?.[0]?.src,
+      '/images/logo.jpg',
+    ].filter(Boolean) as string[]
+  }
 
   return (
     <section
@@ -45,44 +59,55 @@ export default function ProjectsSection() {
               I nostri progetti
             </h2>
           </div>
-          <Link
+          {/* <Link
             href="/progetti"
             className="inline-flex items-center gap-2 text-[#1a3a6b] font-semibold hover:gap-3 transition-all group shrink-0"
-            aria-label="Vedi tutti i progetti"
           >
-            Vedi tutti
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-          </Link>
+            Tutti i progetti
+            <ArrowRight
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              aria-hidden="true"
+            />
+          </Link> */}
         </div>
 
-        {/* Filter */}
+        {/* Year filters */}
         <div
-          role="group"
-          aria-label="Filtra progetti per categoria"
           className="flex flex-wrap gap-2 mb-10"
+          role="tablist"
+          aria-label="Filtra per anno"
         >
-          {PROJECT_CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              onClick={() => setActiveCategory(cat)}
-              aria-pressed={activeCategory === cat}
-              className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
-                activeCategory === cat
-                  ? 'bg-[#1a3a6b] text-white shadow-md'
-                  : 'bg-[#F8FAFC] text-[#1a3a6b]/70 hover:bg-[#1a3a6b]/10 hover:text-[#1a3a6b]'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {PROJECT_CATEGORIES.map((cat) => {
+            const isActive = activeCategory === cat
+            return (
+              <button
+                key={cat}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+                  isActive
+                    ? 'bg-[#1a3a6b] text-white shadow'
+                    : 'bg-[#F8FAFC] text-[#1a3a6b]/70 hover:bg-[#e8edf5] border border-[#1a3a6b]/8'
+                }`}
+              >
+                {cat}
+              </button>
+            )
+          })}
         </div>
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
           <AnimatePresence mode="popLayout">
             {filtered.map((project) => {
-              const colors = CATEGORY_COLORS[project.categoryColor] || CATEGORY_COLORS.blue
+              const colors =
+                CATEGORY_COLORS[project.categoryColor] || CATEGORY_COLORS.blue
+              const candidates = getImageCandidates(project)
+              const currentAttempt = imageAttemptByProject[project.id] ?? 0
+              const safeAttempt = Math.min(currentAttempt, candidates.length - 1)
+              const cardImage = candidates[safeAttempt]
               return (
                 <motion.article
                   key={project.id}
@@ -93,45 +118,76 @@ export default function ProjectsSection() {
                   transition={{ duration: 0.35 }}
                   className="group bg-white rounded-2xl border border-[#1a3a6b]/8 overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  {/* Image */}
-                  <div className="relative h-52 overflow-hidden bg-[#e8edf5]">
-                    <Image
-                      src={project.image || '/images/hero.png'}
-                      alt={`Progetto: ${project.title}`}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
+                  <Link href={project.href} className="block">
+                    <div className="relative h-52 overflow-hidden bg-[#e8edf5]">
+                      <Image
+                        src={cardImage}
+                        alt={`Progetto: ${project.title}`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        onError={() => {
+                          setImageAttemptByProject((prev) => {
+                            const attempt = prev[project.id] ?? 0
+                            if (attempt >= candidates.length - 1) return prev
+                            return { ...prev, [project.id]: attempt + 1 }
+                          })
+                        }}
+                      />
+                    </div>
 
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Tag className="w-3.5 h-3.5 shrink-0" style={{ color: colors.text }} aria-hidden="true" />
-                      <span
-                        className="text-xs font-bold uppercase tracking-wide px-2.5 py-1 rounded-lg"
-                        style={{ backgroundColor: colors.bg, color: colors.text }}
-                      >
-                        {project.category}
+                    <div className="p-6">
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {project.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded-lg"
+                            style={{
+                              backgroundColor: colors.bg,
+                              color: colors.text,
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="font-bold text-xl text-[#1a3a6b] mb-3 group-hover:text-[#2952a3] transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-[#1a3a6b]/65 text-base leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+                      {(project.location || project.year) && (
+                        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#1a3a6b]/55 mb-4">
+                          {project.location && (
+                            <span className="inline-flex items-center gap-1">
+                              <MapPin
+                                className="w-3.5 h-3.5"
+                                aria-hidden="true"
+                              />
+                              {project.location}
+                            </span>
+                          )}
+                          {project.year && (
+                            <span className="inline-flex items-center gap-1">
+                              <Calendar
+                                className="w-3.5 h-3.5"
+                                aria-hidden="true"
+                              />
+                              {project.year}
+                            </span>
+                          )}
+                        </p>
+                      )}
+                      <span className="inline-flex items-center gap-2 text-[#1a3a6b] font-semibold text-sm group-hover:gap-3 transition-all">
+                        Leggi di più
+                        <ArrowRight
+                          className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                          aria-hidden="true"
+                        />
                       </span>
                     </div>
-                    <h3 className="font-bold text-xl text-[#1a3a6b] mb-3 group-hover:text-[#2952a3] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-[#1a3a6b]/65 text-base leading-relaxed mb-5">
-                      {project.description}
-                    </p>
-                    <Link
-                      href={project.href}
-                      className="inline-flex items-center gap-2 text-[#1a3a6b] font-semibold text-sm hover:gap-3 transition-all group/link"
-                      aria-label={`Leggi di più su ${project.title}`}
-                    >
-                      Leggi di più
-                      <ArrowRight
-                        className="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
-                        aria-hidden="true"
-                      />
-                    </Link>
-                  </div>
+                  </Link>
                 </motion.article>
               )
             })}

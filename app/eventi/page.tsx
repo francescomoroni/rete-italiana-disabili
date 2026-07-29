@@ -8,7 +8,7 @@ import FinalCTA from '@/components/final-cta'
 export const metadata: Metadata = {
   title: 'Eventi',
   description:
-    'Scopri i prossimi eventi di Rete Italiana Disabili ETS: convegni, sportelli, maratone e incontri su diritti e inclusione in tutta Italia.',
+    'Prossimi eventi di Rete Italiana Disabili: A Tutto Campo Speciale Serale e corso di padel inclusivo al Tennis Club Vigna Fiorita di Ciampino.',
   alternates: { canonical: '/eventi' },
 }
 
@@ -18,13 +18,13 @@ export default function EventiPage() {
       <Header />
       <main id="main-content" tabIndex={-1}>
         <PageHeader
-          eyebrow="In agenda"
-          title="Eventi, incontri, opportunità."
-          description="Partecipa agli eventi di Rete Italiana Disabili ETS. Ogni appuntamento è un'occasione per conoscerci, imparare e agire insieme."
+          eyebrow="Prossimi eventi"
+          title="Vieni a conoscerci di persona"
+          description="Le occasioni in cui Rete Italiana Disabili scende in campo per costruire comunità, sport e inclusione."
           breadcrumbs={[{ label: 'Eventi' }]}
           accentColor="#f07030"
         />
-        <EventsSection />
+        <EventsSection showAllLink={false} showHeading={false} />
         <FinalCTA />
       </main>
       <Footer />
