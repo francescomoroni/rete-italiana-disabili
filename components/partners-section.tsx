@@ -36,8 +36,8 @@ export default function PartnersSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
             >
-              <article className="flex items-center justify-center h-20 sm:h-24 p-3 rounded-xl border border-[#1a3a6b]/10 bg-white hover:border-[#1a3a6b]/20 hover:shadow-sm transition-all">
-                <div className="relative w-full h-10 sm:h-12">
+              <article className="flex flex-col items-center justify-center gap-2 h-24 sm:h-28 p-3 rounded-xl border border-[#1a3a6b]/10 bg-white hover:border-[#1a3a6b]/20 hover:shadow-sm transition-all">
+                <div className="relative w-full h-9 sm:h-10">
                   <Image
                     src={sponsor.logo}
                     alt={`Logo di ${sponsor.name}`}
@@ -46,6 +46,9 @@ export default function PartnersSection() {
                     sizes="(max-width: 640px) 30vw, (max-width: 1024px) 18vw, 150px"
                   />
                 </div>
+                <p className="text-center text-[10px] sm:text-xs font-medium text-[#1a3a6b]/65 leading-tight line-clamp-2">
+                  {sponsor.name}
+                </p>
               </article>
             </motion.li>
           ))}
