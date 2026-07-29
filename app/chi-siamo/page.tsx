@@ -28,7 +28,7 @@ export default function ChiSiamoPage() {
         <PageHeader
           eyebrow="La nostra storia"
           title="Chi siamo e perché esistiamo."
-          description="Rete Italiana Disabili ETS nasce nel 2010 da un gruppo di persone con disabilità, famiglie e professionisti stanchi di aspettare cambiamenti che non arrivavano."
+          description="Rete Italiana Disabili ETS nasce nel 2020 da un gruppo di persone con disabilità, famiglie e professionisti stanchi di aspettare cambiamenti che non arrivavano."
           breadcrumbs={[{ label: 'Chi Siamo' }]}
         />
 
@@ -42,7 +42,7 @@ export default function ChiSiamoPage() {
                 </h2>
                 <div className="prose prose-lg max-w-none text-[#1a3a6b]/70 space-y-4">
                   <p>
-                    Nel 2010, un piccolo gruppo di persone si riunì a Milano con un obiettivo chiaro:
+                    Nel 2020, un piccolo gruppo di persone si riunì a Roma con un obiettivo chiaro:
                     creare una rete nazionale capace di dare voce a chi troppo spesso non viene ascoltato.
                     Non esperti calati dall&apos;alto, ma persone che vivevano sulla propria pelle le difficoltà
                     quotidiane di una società ancora lontana dall&apos;essere davvero inclusiva.
@@ -53,9 +53,9 @@ export default function ChiSiamoPage() {
                     con le università e portando la nostra esperienza in tutta Italia.
                   </p>
                   <p>
-                    Oggi siamo oltre 1.240 soci attivi, 86 partner istituzionali e un team di 30 professionisti
-                    e volontari dedicati. Ma la nostra essenza è rimasta la stessa: essere al fianco
-                    delle persone, sempre.
+                    Oggi contiamo oltre 2.000 sostenitori, 55 partner e piu di 500 persone supportate
+                    attraverso progetti concreti sul territorio. Ma la nostra essenza è rimasta la stessa:
+                    essere al fianco delle persone, sempre.
                   </p>
                 </div>
               </div>
@@ -65,12 +65,9 @@ export default function ChiSiamoPage() {
                 <h3 className="text-xl font-bold text-[#1a3a6b] mb-6">Le tappe principali</h3>
                 <ol className="relative border-l-2 border-[#1a3a6b]/15 pl-6 flex flex-col gap-6" role="list">
                   {[
-                    { year: '2010', text: 'Fondazione a Milano da 12 soci fondatori' },
-                    { year: '2012', text: 'Riconoscimento come Ente del Terzo Settore' },
-                    { year: '2015', text: 'Lancio del primo programma nazionale di accessibilità digitale' },
-                    { year: '2018', text: 'Partecipazione al tavolo ONU sull\'attuazione della CRPD in Italia' },
-                    { year: '2020', text: 'Avvio del progetto "Sport Per Tutti" in 20 comuni' },
-                    { year: '2023', text: 'Superato il traguardo dei 1.000 soci attivi' },
+                    { year: '2020', text: 'Fondazione a Roma da 12 soci fondatori' },
+                    { year: '2021', text: 'Riconoscimento come Ente del Terzo Settore' },
+                    { year: '2026', text: 'Superata la soglia dei 2.000 sostenitori attivi' },
                   ].map((milestone) => (
                     <li key={milestone.year} className="relative">
                       <div className="absolute -left-9 w-4 h-4 rounded-full bg-[#1a3a6b] border-4 border-white shadow" aria-hidden="true" />

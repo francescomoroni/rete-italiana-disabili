@@ -50,7 +50,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-5 max-w-xs">
-              Promuoviamo diritti, inclusione e sostegno per le persone con disabilità in tutta Italia dal 2010.
+              Promuoviamo diritti, inclusione e sostegno per le persone con disabilità in tutta Italia dal 2020.
             </p>
             <div className="flex gap-3">
               {SOCIAL_LINKS.map(({ label, href, Icon }) => (
