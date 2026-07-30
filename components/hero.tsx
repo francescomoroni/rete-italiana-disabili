@@ -24,14 +24,14 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero.png"
+          src="/images/hero.webp"
           alt="Persone con disabilità che partecipano attivamente alla vita sociale"
           fill
           priority
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f2347]/85 via-[#1a3a6b]/70 to-[#1a3a6b]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-dark/85 via-brand-blue/70 to-brand-blue/30" />
       </div>
 
       {/* Floating colored dots inspired by logo diversity */}
@@ -55,7 +55,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -63,7 +63,7 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#27a55a] inline-block" aria-hidden="true" />
+              <span className="w-2 h-2 rounded-full bg-accent-green inline-block" aria-hidden="true" />
               Associazione di Ente del Terzo Settore
             </span>
           </motion.div>
@@ -75,7 +75,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1 }}
           >
             Costruiamo insieme{' '}
-            <span className="text-[#27a55a]">un&apos;Italia</span>
+            <span className="text-accent-green">un&apos;Italia</span>
             {' '}davvero inclusiva.
           </motion.h1>
 
@@ -98,7 +98,7 @@ export default function Hero() {
           >
             <Link
               href="/diventa-socio"
-              className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white text-[#1a3a6b] font-bold rounded-2xl hover:bg-white/90 transition-all shadow-xl hover:shadow-2xl text-base"
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white text-brand-blue font-bold rounded-2xl hover:bg-white/90 transition-all shadow-xl hover:shadow-2xl text-base"
             >
               <Users className="w-5 h-5" aria-hidden="true" />
               Diventa Socio

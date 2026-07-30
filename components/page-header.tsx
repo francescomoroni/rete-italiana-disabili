@@ -26,16 +26,16 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <section
-      className="pt-28 pb-16 md:pt-36 md:pb-20 bg-[#F8FAFC] border-b border-[#1a3a6b]/8"
+      className="pt-28 pb-16 md:pt-36 md:pb-20 bg-brand-surface border-b border-brand-blue/8"
       aria-label={`Intestazione pagina: ${title}`}
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav aria-label="Percorso di navigazione" className="mb-6">
-            <ol className="flex flex-wrap items-center gap-1.5 text-sm text-[#1a3a6b]/50" role="list">
+            <ol className="flex flex-wrap items-center gap-1.5 text-sm text-brand-blue/50" role="list">
               <li>
-                <Link href="/" className="hover:text-[#1a3a6b] transition-colors">
+                <Link href="/" className="hover:text-brand-blue transition-colors">
                   Home
                 </Link>
               </li>
@@ -43,11 +43,11 @@ export default function PageHeader({
                 <li key={i} className="flex items-center gap-1.5">
                   <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
                   {crumb.href ? (
-                    <Link href={crumb.href} className="hover:text-[#1a3a6b] transition-colors">
+                    <Link href={crumb.href} className="hover:text-brand-blue transition-colors">
                       {crumb.label}
                     </Link>
                   ) : (
-                    <span className="text-[#1a3a6b] font-medium" aria-current="page">
+                    <span className="text-brand-blue font-medium" aria-current="page">
                       {crumb.label}
                     </span>
                   )}
@@ -70,11 +70,11 @@ export default function PageHeader({
               {eyebrow}
             </p>
           )}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#1a3a6b] text-balance max-w-3xl">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-brand-blue text-balance max-w-3xl">
             {title}
           </h1>
           {description && (
-            <p className="mt-5 text-lg text-[#1a3a6b]/65 leading-relaxed max-w-2xl">
+            <p className="mt-5 text-lg text-brand-blue/65 leading-relaxed max-w-2xl">
               {description}
             </p>
           )}

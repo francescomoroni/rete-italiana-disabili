@@ -16,9 +16,9 @@ export default function TrustBar() {
   return (
     <section
       aria-label="Garanzie e certificazioni"
-      className="bg-white border-b border-[#1a3a6b]/8 py-5"
+      className="bg-white border-b border-brand-blue/8 py-5"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ul
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
           role="list"
@@ -26,7 +26,7 @@ export default function TrustBar() {
           {TRUST_ITEMS.map((item, i) => (
             <motion.li
               key={item.label}
-              className="flex items-center gap-2.5 text-sm font-medium text-[#1a3a6b]/75"
+              className="flex items-center gap-2.5 text-sm font-medium text-brand-blue/75"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.07 }}

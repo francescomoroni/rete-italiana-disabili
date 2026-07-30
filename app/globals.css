@@ -13,13 +13,18 @@
   --color-brand-blue-dark: #0f2347;
   --color-brand-blue-light: #2952a3;
   --color-brand-blue-muted: #e8edf5;
+  --color-brand-blue-soft: #f0f4fa;
+  --color-brand-surface: #f8fafc;
+  --color-brand-mint: #eef8f7;
 
   --color-accent-green: #27a55a;
+  --color-accent-green-dark: #1e8a4a;
   --color-accent-yellow: #f5b800;
   --color-accent-orange: #f07030;
   --color-accent-coral: #e84c5a;
   --color-accent-magenta: #c0287a;
   --color-accent-sky: #1e9ed6;
+  --color-whatsapp: #25d366;
 
   /* Semantic tokens */
   --color-background: var(--background);
@@ -117,7 +122,7 @@
 
 /* Focus styles for accessibility */
 :focus-visible {
-  outline: 3px solid #1a3a6b;
+  outline: 3px solid var(--color-brand-blue);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -129,7 +134,7 @@
   left: 1rem;
   z-index: 9999;
   padding: 0.75rem 1.5rem;
-  background: #1a3a6b;
+  background: var(--color-brand-blue);
   color: white;
   font-weight: 700;
   border-radius: 0 0 0.5rem 0.5rem;

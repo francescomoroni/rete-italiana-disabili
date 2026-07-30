@@ -8,9 +8,9 @@ export default function PartnersSection() {
   return (
     <section
       aria-labelledby="partners-heading"
-      className="py-16 md:py-20 bg-[#F8FAFC] border-t border-[#1a3a6b]/8"
+      className="py-16 md:py-20 bg-brand-surface border-t border-brand-blue/8"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-10"
           initial={{ opacity: 0, y: 16 }}
@@ -18,7 +18,7 @@ export default function PartnersSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-sm font-semibold text-[#1a3a6b]/50 uppercase tracking-widest">
+          <p className="text-sm font-semibold text-brand-blue/50 uppercase tracking-widest">
             Sponsor e partner
           </p>
         </motion.div>
@@ -36,7 +36,7 @@ export default function PartnersSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
             >
-              <article className="flex flex-col items-center justify-center gap-2 h-24 sm:h-28 p-3 rounded-xl border border-[#1a3a6b]/10 bg-white hover:border-[#1a3a6b]/20 hover:shadow-sm transition-all">
+              <article className="flex flex-col items-center justify-center gap-2 h-24 sm:h-28 p-3 rounded-xl border border-brand-blue/10 bg-white hover:border-brand-blue/20 hover:shadow-sm transition-all">
                 <div className="relative w-full h-9 sm:h-10">
                   <Image
                     src={sponsor.logo}
@@ -46,7 +46,7 @@ export default function PartnersSection() {
                     sizes="(max-width: 640px) 30vw, (max-width: 1024px) 18vw, 150px"
                   />
                 </div>
-                <p className="text-center text-[10px] sm:text-xs font-medium text-[#1a3a6b]/65 leading-tight line-clamp-2">
+                <p className="text-center text-[10px] sm:text-xs font-medium text-brand-blue/65 leading-tight line-clamp-2">
                   {sponsor.name}
                 </p>
               </article>

@@ -34,8 +34,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer role="contentinfo" className="bg-[#0f2347] text-white">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+    <footer role="contentinfo" className="bg-brand-blue-dark text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main footer */}
         <div className="py-14 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand */}
@@ -107,7 +107,7 @@ export default function Footer() {
           </p>
           <p className="text-xs text-white/40 flex items-center gap-1.5">
             Fatto con
-            <Heart className="w-3 h-3 text-[#e84c5a]" aria-hidden="true" />
+            <Heart className="w-3 h-3 text-accent-coral" aria-hidden="true" />
             per l&apos;inclusione da{' '}
             <a
               href="https://2morrowlabs.com/"
@@ -126,7 +126,7 @@ export default function Footer() {
         href="https://wa.me/393332967651"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-2xl hover:shadow-xl hover:scale-110 transition-all"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-whatsapp flex items-center justify-center shadow-2xl hover:shadow-xl hover:scale-110 transition-all"
         aria-label="Contattaci su WhatsApp"
       >
         <WhatsAppIcon className="w-7 h-7 text-white" />

@@ -23,7 +23,7 @@ export default function MissionSection() {
       aria-labelledby="mission-heading"
       className="py-20 md:py-28 bg-white"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text side */}
           <motion.div
@@ -32,29 +32,29 @@ export default function MissionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-[#1e9ed6] font-semibold text-sm uppercase tracking-widest mb-3">
+            <p className="text-accent-sky font-semibold text-sm uppercase tracking-widest mb-3">
               La nostra missione
             </p>
             <h2
               id="mission-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] mb-6 text-balance"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-blue mb-6 text-balance"
             >
               Ogni persona merita
               <br />
               di vivere pienamente.
             </h2>
-            <p className="text-lg text-[#1a3a6b]/70 leading-relaxed mb-6">
+            <p className="text-lg text-brand-blue/70 leading-relaxed mb-6">
               Rete Italiana Disabili ETS nasce dalla convinzione che l&apos;inclusione non sia
               un&apos;utopia, ma un obiettivo concreto e raggiungibile. Lavoriamo con le persone,
               non per le persone — ascoltando, coordinando e agendo.
             </p>
-            <p className="text-lg text-[#1a3a6b]/70 leading-relaxed mb-8">
+            <p className="text-lg text-brand-blue/70 leading-relaxed mb-8">
               Dal 2010 costruiamo ponti tra cittadini, istituzioni e aziende per trasformare i
               diritti in realtà quotidiana.
             </p>
             <Link
               href="/missione"
-              className="inline-flex items-center gap-2 text-[#1a3a6b] font-semibold hover:gap-3 transition-all group"
+              className="inline-flex items-center gap-2 text-brand-blue font-semibold hover:gap-3 transition-all group"
               aria-label="Scopri di più sulla nostra missione"
             >
               Scopri di più sulla missione
@@ -73,7 +73,7 @@ export default function MissionSection() {
               return (
                 <motion.article
                   key={card.title}
-                  className="flex items-start gap-5 p-6 rounded-2xl border border-[#1a3a6b]/8 bg-[#F8FAFC] hover:shadow-md transition-shadow"
+                  className="flex items-start gap-5 p-6 rounded-2xl border border-brand-blue/8 bg-brand-surface hover:shadow-md transition-shadow"
                   initial={{ opacity: 0, x: 32 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -93,8 +93,8 @@ export default function MissionSection() {
                     )}
                   </div>
                   <div>
-                    <h3 className="font-bold text-[#1a3a6b] text-lg mb-1">{card.title}</h3>
-                    <p className="text-[#1a3a6b]/65 text-base leading-relaxed">{card.description}</p>
+                    <h3 className="font-bold text-brand-blue text-lg mb-1">{card.title}</h3>
+                    <p className="text-brand-blue/65 text-base leading-relaxed">{card.description}</p>
                   </div>
                 </motion.article>
               )

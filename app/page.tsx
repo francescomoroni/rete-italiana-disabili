@@ -13,13 +13,15 @@ import TestimonialsSection from '@/components/testimonials-section'
 import PartnersSection from '@/components/partners-section'
 import FinalCTA from '@/components/final-cta'
 import Footer from '@/components/footer'
+import { pageMetadata, SITE_NAME, SITE_TAGLINE } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Home – Inclusione, Diritti e Sostegno per le Persone con Disabilità',
+export const metadata: Metadata = pageMetadata({
+  title: `${SITE_NAME} – ${SITE_TAGLINE}`,
   description:
-    'Rete Italiana Disabili ETS: promuoviamo diritti, inclusione e sostegno concreto per le persone con disabilità in Italia. Scopri i nostri progetti, unisciti a noi.',
-  alternates: { canonical: '/' },
-}
+    'Rete Italiana Disabili ETS: promuoviamo diritti, inclusione e sostegno concreto per le persone con disabilità in Italia. Scopri i nostri progetti, eventi e come diventare socio.',
+  path: '/',
+  absoluteTitle: true,
+})
 
 export default function HomePage() {
   return (
@@ -32,9 +34,9 @@ export default function HomePage() {
         <MissionSection />
         <WhoWeHelp />
         <ServicesSection />
-        <EventsSection />
-        <ProjectsSection />
-        <DonationsSection />
+        <EventsSection mobileLimit={2} />
+        <ProjectsSection mobileLimit={4} showAllLink />
+        <DonationsSection mobilePreview />
         <TestimonialsSection />
         <PartnersSection />
         <FinalCTA />

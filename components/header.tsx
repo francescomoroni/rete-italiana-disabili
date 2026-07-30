@@ -28,12 +28,12 @@ export default function Header() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled || !isHomepage
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#1a3a6b]/8'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-blue/8'
           : 'bg-transparent'
       )}
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-18 md:h-32">
           {/* Logo */}
           <Link
             href="/"
@@ -43,9 +43,9 @@ export default function Header() {
             <Image
               src="/images/logo.jpg"
               alt="Rete Italiana Disabili ETS – Noi Siamo Rete"
-              width={52}
-              height={52}
-              className="rounded-full object-contain group-hover:scale-105 transition-transform duration-200"
+              width={100}
+              height={100}
+              className="h-16 w-16 md:h-32 md:w-32 rounded-full object-contain group-hover:scale-105 transition-transform duration-200"
               priority
             />
           </Link>
@@ -60,8 +60,8 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-[#1a3a6b]/10',
-                  scrolled || !isHomepage ? 'text-[#1a3a6b]/80 hover:text-[#1a3a6b]' : 'text-white/90 hover:text-white hover:bg-white/15'
+                  'px-3 py-2 rounded-lg text-sm font-medium transition-all hover:bg-brand-blue/10',
+                  scrolled || !isHomepage ? 'text-brand-blue/80 hover:text-brand-blue' : 'text-white/90 hover:text-white hover:bg-white/15'
                 )}
               >
                 {link.label}
@@ -73,7 +73,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/sostienici"
-              className="hidden md:flex items-center gap-2 px-4 py-2 bg-[#1a3a6b] text-white text-sm font-semibold rounded-xl hover:bg-[#0f2347] transition-colors shadow-md hover:shadow-lg"
+              className="hidden md:flex items-center gap-2 px-4 py-2 bg-brand-blue text-white text-sm font-semibold rounded-xl hover:bg-brand-blue-dark transition-colors shadow-md hover:shadow-lg"
               aria-label="Dona ora a Rete Italiana Disabili ETS"
             >
               <Heart className="w-4 h-4" aria-hidden="true" />
@@ -83,7 +83,7 @@ export default function Header() {
               type="button"
               className={cn(
                 'lg:hidden p-2 rounded-lg transition-colors',
-                scrolled || !isHomepage ? 'text-[#1a3a6b] hover:bg-[#1a3a6b]/10' : 'text-white hover:bg-white/15'
+                scrolled || !isHomepage ? 'text-brand-blue hover:bg-brand-blue/10' : 'text-white hover:bg-white/15'
               )}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-expanded={mobileOpen}
@@ -103,18 +103,18 @@ export default function Header() {
         aria-modal="true"
         aria-label="Menu di navigazione mobile"
         className={cn(
-          'lg:hidden overflow-hidden transition-all duration-300 bg-white border-t border-[#1a3a6b]/10',
+          'lg:hidden overflow-hidden transition-all duration-300 bg-white border-t border-brand-blue/10',
           mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         )}
       >
-        <nav className="max-w-[1280px] mx-auto px-4 py-4 flex flex-col gap-1">
+        <nav className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
           {NAV_LINKS
             .filter((link) => link.href !== '/sostienici')
             .map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="px-4 py-3 text-[#1a3a6b] font-medium rounded-xl hover:bg-[#1a3a6b]/8 transition-colors text-base"
+              className="px-4 py-3 text-brand-blue font-medium rounded-xl hover:bg-brand-blue/8 transition-colors text-base"
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
@@ -122,7 +122,7 @@ export default function Header() {
           ))}
           <Link
             href="/sostienici"
-            className="mt-3 flex items-center justify-center gap-2 px-4 py-3 bg-[#1a3a6b] text-white font-semibold rounded-xl hover:bg-[#0f2347] transition-colors"
+            className="mt-3 flex items-center justify-center gap-2 px-4 py-3 bg-brand-blue text-white font-semibold rounded-xl hover:bg-brand-blue-dark transition-colors"
             onClick={() => setMobileOpen(false)}
           >
             <Heart className="w-4 h-4" aria-hidden="true" />

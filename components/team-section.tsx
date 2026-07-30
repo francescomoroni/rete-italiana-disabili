@@ -55,15 +55,15 @@ const TEAM = [
 
 export default function TeamSection() {
   return (
-    <section aria-labelledby="team-heading" className="bg-[#eef8f7] py-20 md:py-28">
-      <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+    <section aria-labelledby="team-heading" className="bg-brand-mint py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#1e9ed6]">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-accent-sky">
             Il nostro team
           </p>
           <h2
             id="team-heading"
-            className="text-3xl font-extrabold text-[#1a3a6b] sm:text-4xl"
+            className="text-3xl font-extrabold text-brand-blue sm:text-4xl"
           >
             Chi rende possibile la rete
           </h2>
@@ -86,8 +86,8 @@ export default function TeamSection() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <h3 className="text-lg font-bold text-[#1a3a6b]">{member.name}</h3>
-                  <p className="mt-0.5 text-sm leading-snug text-[#1a3a6b]/70">
+                  <h3 className="text-lg font-bold text-brand-blue">{member.name}</h3>
+                  <p className="mt-0.5 text-sm leading-snug text-brand-blue/70">
                     {member.role}
                   </p>
                 </div>

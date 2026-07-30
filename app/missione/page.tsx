@@ -4,13 +4,14 @@ import Footer from '@/components/footer'
 import PageHeader from '@/components/page-header'
 import MissionSection from '@/components/mission-section'
 import FinalCTA from '@/components/final-cta'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Missione',
   description:
     'La missione di Rete Italiana Disabili ETS: promuovere inclusione, difendere i diritti e favorire la partecipazione delle persone con disabilità.',
-  alternates: { canonical: '/missione' },
-}
+  path: '/missione',
+})
 
 export default function MissionePage() {
   return (
@@ -27,10 +28,10 @@ export default function MissionePage() {
         <MissionSection />
 
         {/* Detailed mission content */}
-        <section aria-labelledby="strategia-heading" className="py-20 bg-[#F8FAFC]">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section aria-labelledby="strategia-heading" className="py-20 bg-brand-surface">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
-              <h2 id="strategia-heading" className="text-3xl font-extrabold text-[#1a3a6b] mb-8 text-center">
+              <h2 id="strategia-heading" className="text-3xl font-extrabold text-brand-blue mb-8 text-center">
                 La nostra strategia
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -56,10 +57,10 @@ export default function MissionePage() {
                     text: 'Rendiamo conto dei risultati ogni anno attraverso il Bilancio Sociale. La trasparenza è un dovere, non un optional.',
                   },
                 ].map((step) => (
-                  <article key={step.num} className="p-6 bg-white rounded-2xl border border-[#1a3a6b]/8 shadow-sm">
-                    <span className="text-4xl font-extrabold text-[#1a3a6b]/10">{step.num}</span>
-                    <h3 className="font-bold text-[#1a3a6b] text-xl mt-2 mb-3">{step.title}</h3>
-                    <p className="text-[#1a3a6b]/65 leading-relaxed">{step.text}</p>
+                  <article key={step.num} className="p-6 bg-white rounded-2xl border border-brand-blue/8 shadow-sm">
+                    <span className="text-4xl font-extrabold text-brand-blue/10">{step.num}</span>
+                    <h3 className="font-bold text-brand-blue text-xl mt-2 mb-3">{step.title}</h3>
+                    <p className="text-brand-blue/65 leading-relaxed">{step.text}</p>
                   </article>
                 ))}
               </div>

@@ -18,7 +18,7 @@ export default function TestimonialsSection() {
       aria-labelledby="testimonials-heading"
       className="py-20 md:py-28 bg-white"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 24 }}
@@ -26,12 +26,12 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[#1e9ed6] font-semibold text-sm uppercase tracking-widest mb-3">
+          <p className="text-accent-sky font-semibold text-sm uppercase tracking-widest mb-3">
             Storie vere
           </p>
           <h2
             id="testimonials-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] text-balance"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-blue text-balance"
           >
             Le persone al centro
           </h2>
@@ -50,22 +50,22 @@ export default function TestimonialsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.4 }}
-                className="bg-[#F8FAFC] rounded-3xl p-8 md:p-12 text-center border border-[#1a3a6b]/8"
+                className="bg-brand-surface rounded-3xl p-8 md:p-12 text-center border border-brand-blue/8"
               >
                 <Quote
-                  className="w-10 h-10 text-[#1a3a6b]/20 mx-auto mb-6"
+                  className="w-10 h-10 text-brand-blue/20 mx-auto mb-6"
                   aria-hidden="true"
                 />
-                <p className="text-xl md:text-2xl text-[#1a3a6b] leading-relaxed font-medium mb-8">
+                <p className="text-xl md:text-2xl text-brand-blue leading-relaxed font-medium mb-8">
                   &ldquo;{testimonial.text}&rdquo;
                 </p>
                 <footer>
-                  <div className="w-12 h-12 rounded-full bg-[#1a3a6b] flex items-center justify-center mx-auto mb-3 text-white font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-brand-blue flex items-center justify-center mx-auto mb-3 text-white font-bold text-lg">
                     {testimonial.name[0]}
                   </div>
                   <cite className="not-italic">
-                    <p className="font-bold text-[#1a3a6b]">{testimonial.name}</p>
-                    <p className="text-[#1a3a6b]/55 text-sm">{testimonial.role}</p>
+                    <p className="font-bold text-brand-blue">{testimonial.name}</p>
+                    <p className="text-brand-blue/55 text-sm">{testimonial.role}</p>
                   </cite>
                 </footer>
               </motion.blockquote>
@@ -77,7 +77,7 @@ export default function TestimonialsSection() {
             <button
               type="button"
               onClick={prev}
-              className="w-10 h-10 rounded-full border-2 border-[#1a3a6b]/20 flex items-center justify-center text-[#1a3a6b] hover:border-[#1a3a6b] hover:bg-[#e8edf5] transition-all"
+              className="w-10 h-10 rounded-full border-2 border-brand-blue/20 flex items-center justify-center text-brand-blue hover:border-brand-blue hover:bg-brand-blue-muted transition-all"
               aria-label="Testimonianza precedente"
             >
               <ChevronLeft className="w-5 h-5" aria-hidden="true" />
@@ -93,7 +93,7 @@ export default function TestimonialsSection() {
                   aria-label={`Testimonianza ${i + 1} di ${TESTIMONIALS.length}`}
                   onClick={() => setCurrent(i)}
                   className={`h-2 rounded-full transition-all ${
-                    i === current ? 'w-8 bg-[#1a3a6b]' : 'w-2 bg-[#1a3a6b]/25 hover:bg-[#1a3a6b]/50'
+                    i === current ? 'w-8 bg-brand-blue' : 'w-2 bg-brand-blue/25 hover:bg-brand-blue/50'
                   }`}
                 />
               ))}
@@ -102,7 +102,7 @@ export default function TestimonialsSection() {
             <button
               type="button"
               onClick={next}
-              className="w-10 h-10 rounded-full border-2 border-[#1a3a6b]/20 flex items-center justify-center text-[#1a3a6b] hover:border-[#1a3a6b] hover:bg-[#e8edf5] transition-all"
+              className="w-10 h-10 rounded-full border-2 border-brand-blue/20 flex items-center justify-center text-brand-blue hover:border-brand-blue hover:bg-brand-blue-muted transition-all"
               aria-label="Testimonianza successiva"
             >
               <ChevronRight className="w-5 h-5" aria-hidden="true" />

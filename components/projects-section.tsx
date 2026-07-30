@@ -18,7 +18,14 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
   purple: { bg: '#f0ebfa', text: '#7c3aed' },
 }
 
-export default function ProjectsSection() {
+export default function ProjectsSection({
+  showAllLink = false,
+  mobileLimit,
+}: {
+  showAllLink?: boolean
+  /** On viewports below `md`, only the first N projects are shown. */
+  mobileLimit?: number
+} = {}) {
   const [activeCategory, setActiveCategory] = useState('Tutti')
   const [imageAttemptByProject, setImageAttemptByProject] = useState<
     Record<string, number>
@@ -28,6 +35,9 @@ export default function ProjectsSection() {
     activeCategory === 'Tutti'
       ? PROJECTS
       : PROJECTS.filter((p) => p.year === activeCategory)
+
+  const isTruncatedOnMobile =
+    typeof mobileLimit === 'number' && filtered.length > mobileLimit
 
   function getImageCandidates(project: (typeof PROJECTS)[number]) {
     const isPlaceholderCover =
@@ -46,29 +56,32 @@ export default function ProjectsSection() {
       aria-labelledby="projects-heading"
       className="py-20 md:py-28 bg-white"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-4">
           <div>
-            <p className="text-[#1e9ed6] font-semibold text-sm uppercase tracking-widest mb-3">
+            <p className="text-accent-sky font-semibold text-sm uppercase tracking-widest mb-3">
               Cosa facciamo
             </p>
             <h2
               id="projects-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] text-balance"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-blue text-balance"
             >
               I nostri progetti
             </h2>
           </div>
-          {/* <Link
-            href="/progetti"
-            className="inline-flex items-center gap-2 text-[#1a3a6b] font-semibold hover:gap-3 transition-all group shrink-0"
-          >
-            Tutti i progetti
-            <ArrowRight
-              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-              aria-hidden="true"
-            />
-          </Link> */}
+          {showAllLink && (
+            <Link
+              href="/progetti"
+              className="group hidden shrink-0 items-center gap-2 font-semibold text-brand-blue transition-all hover:gap-3 md:inline-flex"
+              aria-label="Vedi tutti i progetti"
+            >
+              Vedi tutto
+              <ArrowRight
+                className="h-5 w-5 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          )}
         </div>
 
         {/* Year filters */}
@@ -88,8 +101,8 @@ export default function ProjectsSection() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
                   isActive
-                    ? 'bg-[#1a3a6b] text-white shadow'
-                    : 'bg-[#F8FAFC] text-[#1a3a6b]/70 hover:bg-[#e8edf5] border border-[#1a3a6b]/8'
+                    ? 'bg-brand-blue text-white shadow'
+                    : 'bg-brand-surface text-brand-blue/70 hover:bg-brand-blue-muted border border-brand-blue/8'
                 }`}
               >
                 {cat}
@@ -101,13 +114,15 @@ export default function ProjectsSection() {
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project) => {
+            {filtered.map((project, index) => {
               const colors =
                 CATEGORY_COLORS[project.categoryColor] || CATEGORY_COLORS.blue
               const candidates = getImageCandidates(project)
               const currentAttempt = imageAttemptByProject[project.id] ?? 0
               const safeAttempt = Math.min(currentAttempt, candidates.length - 1)
               const cardImage = candidates[safeAttempt]
+              const hideOnMobile =
+                isTruncatedOnMobile && index >= mobileLimit!
               return (
                 <motion.article
                   key={project.id}
@@ -116,10 +131,12 @@ export default function ProjectsSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.35 }}
-                  className="group bg-white rounded-2xl border border-[#1a3a6b]/8 overflow-hidden hover:shadow-xl transition-all duration-300"
+                  className={`group bg-white rounded-2xl border border-brand-blue/8 overflow-hidden hover:shadow-xl transition-all duration-300 ${
+                    hideOnMobile ? 'hidden md:block' : ''
+                  }`}
                 >
                   <Link href={project.href} className="block">
-                    <div className="relative h-52 overflow-hidden bg-[#e8edf5]">
+                    <div className="relative h-52 overflow-hidden bg-brand-blue-muted">
                       <Image
                         src={cardImage}
                         alt={`Progetto: ${project.title}`}
@@ -151,14 +168,14 @@ export default function ProjectsSection() {
                           </span>
                         ))}
                       </div>
-                      <h3 className="font-bold text-xl text-[#1a3a6b] mb-3 group-hover:text-[#2952a3] transition-colors">
+                      <h3 className="font-bold text-xl text-brand-blue mb-3 group-hover:text-brand-blue-light transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-[#1a3a6b]/65 text-base leading-relaxed mb-4">
+                      <p className="text-brand-blue/65 text-base leading-relaxed mb-4">
                         {project.description}
                       </p>
                       {(project.location || project.year) && (
-                        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#1a3a6b]/55 mb-4">
+                        <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-brand-blue/55 mb-4">
                           {project.location && (
                             <span className="inline-flex items-center gap-1">
                               <MapPin
@@ -179,7 +196,7 @@ export default function ProjectsSection() {
                           )}
                         </p>
                       )}
-                      <span className="inline-flex items-center gap-2 text-[#1a3a6b] font-semibold text-sm group-hover:gap-3 transition-all">
+                      <span className="inline-flex items-center gap-2 text-brand-blue font-semibold text-sm group-hover:gap-3 transition-all">
                         Leggi di più
                         <ArrowRight
                           className="w-4 h-4 group-hover:translate-x-1 transition-transform"
@@ -193,6 +210,21 @@ export default function ProjectsSection() {
             })}
           </AnimatePresence>
         </div>
+
+        {isTruncatedOnMobile && (
+          <div className="mt-8 flex justify-center md:hidden">
+            <Link
+              href="/progetti"
+              className="group inline-flex items-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 py-3 text-sm font-semibold text-brand-blue transition-all hover:border-brand-blue/30 hover:bg-brand-blue-muted"
+            >
+              Vedi tutto
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   )

@@ -43,7 +43,7 @@ function ShareButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#1a3a6b]/12 text-[#1a3a6b]/70 hover:text-[#1a3a6b] hover:border-[#1a3a6b]/30 hover:bg-[#f0f4fa] transition-all text-sm font-medium"
+      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-brand-blue/12 text-brand-blue/70 hover:text-brand-blue hover:border-brand-blue/30 hover:bg-brand-blue-soft transition-all text-sm font-medium"
     >
       {children}
     </a>
@@ -119,14 +119,14 @@ export default function ProjectDetail({ project }: { project: Project }) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <Link
           href="/progetti"
-          className="inline-flex items-center gap-2 text-[#1a3a6b]/70 hover:text-[#1a3a6b] font-semibold text-sm mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-brand-blue/70 hover:text-brand-blue font-semibold text-sm mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" aria-hidden="true" />
           Tutti i progetti
         </Link>
 
         <header className="mb-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] text-balance leading-tight mb-5">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-blue text-balance leading-tight mb-5">
             {project.title}
           </h1>
 
@@ -142,7 +142,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-[#1a3a6b]/65 text-sm">
+          <div className="flex flex-wrap items-center gap-4 text-brand-blue/65 text-sm">
             {project.location && (
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
@@ -159,7 +159,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </header>
 
         {/* Central hero photo */}
-        <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#e8edf5] mb-10">
+        <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-brand-blue-muted mb-10">
           <Image
             src={heroImage}
             alt={project.title}
@@ -181,7 +181,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             {project.fullDescription.map((para, i) => (
               <p
                 key={i}
-                className="text-[#1a3a6b]/80 text-lg leading-relaxed"
+                className="text-brand-blue/80 text-lg leading-relaxed"
               >
                 {para}
               </p>
@@ -192,7 +192,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {/* Partners */}
         {project.partners && project.partners.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-sm font-bold text-[#1a3a6b] uppercase tracking-widest mb-3 flex items-center gap-2">
+            <h2 className="text-sm font-bold text-brand-blue uppercase tracking-widest mb-3 flex items-center gap-2">
               <Users className="w-4 h-4" aria-hidden="true" />
               Partner
             </h2>
@@ -200,7 +200,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               {project.partners.map((partner) => (
                 <span
                   key={partner}
-                  className="px-3 py-1.5 rounded-xl border border-[#1a3a6b]/12 bg-[#F8FAFC] text-sm font-medium text-[#1a3a6b]/80"
+                  className="px-3 py-1.5 rounded-xl border border-brand-blue/12 bg-brand-surface text-sm font-medium text-brand-blue/80"
                 >
                   {partner}
                 </span>
@@ -212,10 +212,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
         {/* Gallery */}
         {gallery.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-2xl font-extrabold text-[#1a3a6b] mb-2">
+            <h2 className="text-2xl font-extrabold text-brand-blue mb-2">
               Galleria
             </h2>
-            <p className="text-sm text-[#1a3a6b]/55 mb-6">
+            <p className="text-sm text-brand-blue/55 mb-6">
               {gallery.length} foto — clicca per ingrandire
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -224,7 +224,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   key={`${img.src}-${i}`}
                   type="button"
                   onClick={() => setLightboxIndex(i)}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-[#e8edf5] focus-visible:ring-2 focus-visible:ring-[#1a3a6b]"
+                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-brand-blue-muted focus-visible:ring-2 focus-visible:ring-brand-blue"
                   aria-label={`Apri immagine ${i + 1}: ${img.alt}`}
                 >
                   <Image
@@ -241,8 +241,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
         )}
 
         {/* Social share */}
-        <div className="pt-8 border-t border-[#1a3a6b]/8">
-          <h2 className="text-base font-bold text-[#1a3a6b] uppercase tracking-widest mb-4">
+        <div className="pt-8 border-t border-brand-blue/8">
+          <h2 className="text-base font-bold text-brand-blue uppercase tracking-widest mb-4">
             Condividi
           </h2>
           <div className="flex flex-wrap gap-3">
@@ -274,7 +274,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
               type="button"
               onClick={copyLink}
               aria-label="Copia il link"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#1a3a6b]/12 text-[#1a3a6b]/70 hover:text-[#1a3a6b] hover:border-[#1a3a6b]/30 hover:bg-[#f0f4fa] transition-all text-sm font-medium"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-brand-blue/12 text-brand-blue/70 hover:text-brand-blue hover:border-brand-blue/30 hover:bg-brand-blue-soft transition-all text-sm font-medium"
             >
               <Link2 className="w-4 h-4" aria-hidden="true" />
               {copied ? 'Link copiato!' : 'Copia link'}
@@ -287,12 +287,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
       {related.length > 0 && (
         <section
           aria-labelledby="related-heading"
-          className="border-t border-[#1a3a6b]/8 bg-[#F8FAFC]"
+          className="border-t border-brand-blue/8 bg-brand-surface"
         >
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
             <h2
               id="related-heading"
-              className="text-2xl font-extrabold text-[#1a3a6b] mb-8"
+              className="text-2xl font-extrabold text-brand-blue mb-8"
             >
               Altri progetti
             </h2>
@@ -303,9 +303,9 @@ export default function ProjectDetail({ project }: { project: Project }) {
                   <Link
                     key={p.id}
                     href={p.href}
-                    className="group bg-white rounded-2xl border border-[#1a3a6b]/8 overflow-hidden hover:shadow-xl transition-all duration-300"
+                    className="group bg-white rounded-2xl border border-brand-blue/8 overflow-hidden hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="relative h-44 bg-[#e8edf5] overflow-hidden">
+                    <div className="relative h-44 bg-brand-blue-muted overflow-hidden">
                       <Image
                         src={p.image}
                         alt={p.title}
@@ -321,7 +321,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
                       >
                         {p.tags[0]}
                       </span>
-                      <h3 className="font-bold text-[#1a3a6b] mt-3 group-hover:text-[#2952a3] transition-colors">
+                      <h3 className="font-bold text-brand-blue mt-3 group-hover:text-brand-blue-light transition-colors">
                         {p.title}
                       </h3>
                     </div>

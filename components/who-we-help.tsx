@@ -23,9 +23,9 @@ export default function WhoWeHelp() {
   return (
     <section
       aria-labelledby="who-we-help-heading"
-      className="py-20 md:py-28 bg-[#F8FAFC]"
+      className="py-20 md:py-28 bg-brand-surface"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 24 }}
@@ -33,12 +33,12 @@ export default function WhoWeHelp() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[#1e9ed6] font-semibold text-sm uppercase tracking-widest mb-3">
+          <p className="text-accent-sky font-semibold text-sm uppercase tracking-widest mb-3">
             A chi ci rivolgiamo
           </p>
           <h2
             id="who-we-help-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] text-balance"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-blue text-balance"
           >
             Siamo qui per te,
             <br />
@@ -60,7 +60,7 @@ export default function WhoWeHelp() {
               >
                 <Link
                   href={item.href}
-                  className="group flex flex-col h-full p-7 rounded-2xl text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-[#1a3a6b]"
+                  className="group flex flex-col h-full p-7 rounded-2xl text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-brand-blue"
                   style={{ backgroundColor: colors.bg }}
                   aria-label={`${item.title} – ${item.description}`}
                 >

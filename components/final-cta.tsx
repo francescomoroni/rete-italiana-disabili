@@ -10,9 +10,9 @@ export default function FinalCTA() {
       aria-labelledby="final-cta-heading"
       className="py-20 md:py-28 bg-white"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="rounded-3xl bg-gradient-to-br from-[#1a3a6b] to-[#0f2347] px-8 py-16 md:py-20 text-center relative overflow-hidden"
+          className="rounded-3xl bg-gradient-to-br from-brand-blue to-brand-blue-dark px-8 py-16 md:py-20 text-center relative overflow-hidden"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -20,14 +20,14 @@ export default function FinalCTA() {
         >
           {/* Colored dots */}
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div className="absolute top-6 left-12 w-3 h-3 rounded-full bg-[#27a55a]/60" />
-            <div className="absolute top-12 right-20 w-4 h-4 rounded-full bg-[#f5b800]/60" />
-            <div className="absolute bottom-8 left-24 w-3 h-3 rounded-full bg-[#e84c5a]/60" />
-            <div className="absolute bottom-14 right-10 w-5 h-5 rounded-full bg-[#1e9ed6]/50" />
-            <div className="absolute top-1/2 left-6 w-2 h-2 rounded-full bg-[#c0287a]/60" />
+            <div className="absolute top-6 left-12 w-3 h-3 rounded-full bg-accent-green/60" />
+            <div className="absolute top-12 right-20 w-4 h-4 rounded-full bg-accent-yellow/60" />
+            <div className="absolute bottom-8 left-24 w-3 h-3 rounded-full bg-accent-coral/60" />
+            <div className="absolute bottom-14 right-10 w-5 h-5 rounded-full bg-accent-sky/50" />
+            <div className="absolute top-1/2 left-6 w-2 h-2 rounded-full bg-accent-magenta/60" />
           </div>
 
-          <p className="text-[#27a55a] font-semibold text-sm uppercase tracking-widest mb-5">
+          <p className="text-accent-green font-semibold text-sm uppercase tracking-widest mb-5">
             Unisciti a noi
           </p>
           <h2
@@ -45,7 +45,7 @@ export default function FinalCTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/diventa-socio"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#1a3a6b] font-bold rounded-2xl hover:bg-white/90 transition-all shadow-xl hover:shadow-2xl text-base"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-blue font-bold rounded-2xl hover:bg-white/90 transition-all shadow-xl hover:shadow-2xl text-base"
             >
               <Users className="w-5 h-5" aria-hidden="true" />
               Diventa Socio

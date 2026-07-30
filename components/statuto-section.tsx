@@ -236,32 +236,32 @@ const STATUTO_ARTICLES: {
 export default function StatutoSection() {
   return (
     <section aria-labelledby="statuto-heading" className="bg-white py-20 md:py-28">
-      <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl space-y-6">
           <div className="flex items-center gap-3">
-            <Scale className="h-8 w-8 shrink-0 text-[#1e9ed6]" aria-hidden="true" />
+            <Scale className="h-8 w-8 shrink-0 text-accent-sky" aria-hidden="true" />
             <h2
               id="statuto-heading"
-              className="text-3xl font-extrabold text-[#1a3a6b] sm:text-4xl"
+              className="text-3xl font-extrabold text-brand-blue sm:text-4xl"
             >
               Statuto dell&apos;Associazione
             </h2>
           </div>
 
-          <p className="text-lg leading-relaxed text-[#1a3a6b]/70">
+          <p className="text-lg leading-relaxed text-brand-blue/70">
             Lo Statuto disciplina la vita associativa di{' '}
-            <strong className="font-semibold text-[#1a3a6b]">
+            <strong className="font-semibold text-brand-blue">
               Rete Italiana Disabili — APS
             </strong>
             , redatto ai sensi del D.Lgs. 117/2017 (Codice del Terzo Settore). C.F.{' '}
-            <strong className="font-semibold text-[#1a3a6b]">94083440589</strong>.
+            <strong className="font-semibold text-brand-blue">94083440589</strong>.
           </p>
 
           <nav
             aria-label="Indice degli articoli dello Statuto"
-            className="rounded-2xl border border-[#1a3a6b]/10 bg-[#F8FAFC] p-6 sm:p-8"
+            className="rounded-2xl border border-brand-blue/10 bg-brand-surface p-6 sm:p-8"
           >
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-[#1e9ed6]">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-accent-sky">
               Indice degli articoli
             </h3>
             <ul className="grid gap-2 sm:grid-cols-2" role="list">
@@ -269,7 +269,7 @@ export default function StatutoSection() {
                 <li key={article.id}>
                   <a
                     href={`#${article.id}`}
-                    className="text-[#1a3a6b]/80 transition-colors hover:text-[#1e9ed6]"
+                    className="text-brand-blue/80 transition-colors hover:text-accent-sky"
                   >
                     {article.tocLabel}
                   </a>
@@ -283,12 +283,12 @@ export default function StatutoSection() {
               <article
                 key={article.id}
                 id={article.id}
-                className="scroll-mt-28 border-b border-[#1a3a6b]/10 pb-8 last:border-b-0 last:pb-0"
+                className="scroll-mt-28 border-b border-brand-blue/10 pb-8 last:border-b-0 last:pb-0"
               >
-                <h3 className="mb-3 text-xl font-bold text-[#1a3a6b]">
+                <h3 className="mb-3 text-xl font-bold text-brand-blue">
                   {article.title}
                 </h3>
-                <div className="space-y-3 text-base leading-relaxed text-[#1a3a6b]/70">
+                <div className="space-y-3 text-base leading-relaxed text-brand-blue/70">
                   {article.blocks.map((block, i) =>
                     block.type === 'paragraph' ? (
                       <p key={i}>{block.text}</p>
@@ -298,7 +298,7 @@ export default function StatutoSection() {
                           <li key={j}>
                             {item.label ? (
                               <>
-                                <strong className="font-semibold text-[#1a3a6b]">
+                                <strong className="font-semibold text-brand-blue">
                                   {item.label}
                                 </strong>{' '}
                                 {item.text}

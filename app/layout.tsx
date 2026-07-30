@@ -1,5 +1,15 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
+import JsonLd from '@/components/json-ld'
+import {
+  DEFAULT_OG_IMAGE,
+  ORGANIZATION,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+} from '@/lib/seo'
 import './globals.css'
 
 const inter = Inter({
@@ -10,46 +20,52 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Rete Italiana Disabili ETS – Inclusione, Diritti e Sostegno',
-    template: '%s | Rete Italiana Disabili ETS',
+    default: `${SITE_NAME} – ${SITE_TAGLINE}`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    'Rete Italiana Disabili ETS promuove diritti, inclusione, sostegno alle famiglie e progetti concreti per migliorare la qualità della vita delle persone con disabilità in Italia.',
-  keywords: [
-    'disabilità',
-    'inclusione',
-    'diritti disabili',
-    'nonprofit disabilità',
-    'associazione disabili Italia',
-    'sostegno famiglie',
-    'accessibilità',
-    'ETS',
-  ],
-  authors: [{ name: 'Rete Italiana Disabili ETS' }],
-  creator: 'Rete Italiana Disabili ETS',
-  publisher: 'Rete Italiana Disabili ETS',
-  metadataBase: new URL('https://reteitalianadisabili.it'),
-  alternates: { canonical: '/' },
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  applicationName: SITE_NAME,
+  category: 'nonprofit',
+  metadataBase: new URL(SITE_URL),
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
+  },
   openGraph: {
     type: 'website',
     locale: 'it_IT',
-    url: 'https://reteitalianadisabili.it',
-    siteName: 'Rete Italiana Disabili ETS',
-    title: 'Rete Italiana Disabili ETS – Inclusione, Diritti e Sostegno',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} – ${SITE_TAGLINE}`,
     description:
       'Promuoviamo diritti, inclusione e sostegno concreto per le persone con disabilità in Italia.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Rete Italiana Disabili ETS' }],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rete Italiana Disabili ETS',
+    title: SITE_NAME,
     description: 'Promuoviamo diritti, inclusione e sostegno per le persone con disabilità.',
-    images: ['/og-image.jpg'],
+    images: [DEFAULT_OG_IMAGE.url],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large' },
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  other: {
+    'geo.region': 'IT-62',
+    'geo.placename': 'Roma',
   },
 }
 
@@ -60,29 +76,72 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  '@id': `${SITE_URL}/#organization`,
+  name: ORGANIZATION.name,
+  legalName: ORGANIZATION.legalName,
+  alternateName: ['Rete Italiana Disabili', 'RID ETS', 'Noi Siamo Rete'],
+  url: ORGANIZATION.url,
+  logo: {
+    '@type': 'ImageObject',
+    url: ORGANIZATION.logo,
+  },
+  image: `${SITE_URL}${DEFAULT_OG_IMAGE.url}`,
+  description:
+    "Associazione nazionale Ente del Terzo Settore per la promozione dei diritti e dell'inclusione delle persone con disabilità.",
+  email: ORGANIZATION.email,
+  telephone: ORGANIZATION.telephone,
+  address: {
+    '@type': 'PostalAddress',
+    ...ORGANIZATION.address,
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Italia',
+  },
+  sameAs: ORGANIZATION.sameAs,
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: ORGANIZATION.telephone,
+      email: ORGANIZATION.email,
+      contactType: 'customer service',
+      availableLanguage: ['Italian'],
+      areaServed: 'IT',
+    },
+  ],
+  foundingLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Roma',
+      addressCountry: 'IT',
+    },
+  },
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  url: SITE_URL,
+  name: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  inLanguage: 'it-IT',
+  publisher: { '@id': `${SITE_URL}/#organization` },
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={`${inter.variable} bg-background font-sans`}>
+    <html
+      lang="it"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} bg-background font-sans`}
+    >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'NGO',
-              name: 'Rete Italiana Disabili ETS',
-              url: 'https://reteitalianadisabili.it',
-              logo: 'https://reteitalianadisabili.it/logo.png',
-              description:
-                'Associazione nazionale per la promozione dei diritti e dell\'inclusione delle persone con disabilità.',
-              address: { '@type': 'PostalAddress', addressCountry: 'IT' },
-              sameAs: [
-                'https://www.facebook.com/reteitalianadisabili',
-                'https://www.instagram.com/reteitalianadisabili',
-              ],
-            }),
-          }}
-        />
+        <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
       </head>
       <body className="antialiased font-sans">
         <a href="#main-content" className="skip-link">

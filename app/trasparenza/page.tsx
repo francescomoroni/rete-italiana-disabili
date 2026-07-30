@@ -5,12 +5,14 @@ import Footer from '@/components/footer'
 import PageHeader from '@/components/page-header'
 import FinalCTA from '@/components/final-cta'
 
-export const metadata: Metadata = {
+import { pageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = pageMetadata({
   title: 'Trasparenza',
   description:
     'Documenti e bilanci di Rete Italiana Disabili ETS. In conformità al D.Lgs. 117/2017 pubblichiamo i bilanci annuali a disposizione di soci e cittadini.',
-  alternates: { canonical: '/trasparenza' },
-}
+  path: '/trasparenza',
+})
 
 const BILANCI = [
   { year: 2025, href: '/documents/bilancio-2025.pdf' },
@@ -32,12 +34,12 @@ export default function TrasparenzaPage() {
         />
 
         <section aria-labelledby="bilanci-heading" className="py-20 bg-white">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 id="bilanci-heading" className="text-3xl font-extrabold text-[#1a3a6b] mb-4">
+              <h2 id="bilanci-heading" className="text-3xl font-extrabold text-brand-blue mb-4">
                 Bilanci
               </h2>
-              <p className="text-lg text-[#1a3a6b]/65 leading-relaxed">
+              <p className="text-lg text-brand-blue/65 leading-relaxed">
                 In conformità al D.Lgs. 117/2017, pubblichiamo i bilanci annuali dell&apos;Associazione
                 a disposizione di soci e cittadini.
               </p>
@@ -49,13 +51,13 @@ export default function TrasparenzaPage() {
             >
               {BILANCI.map((bilancio) => (
                 <li key={bilancio.year}>
-                  <article className="flex flex-col items-center gap-4 rounded-2xl border border-[#1a3a6b]/8 bg-[#F8FAFC] p-8 text-center h-full">
-                    <span className="text-3xl font-extrabold text-[#1a3a6b]">{bilancio.year}</span>
+                  <article className="flex flex-col items-center gap-4 rounded-2xl border border-brand-blue/8 bg-brand-surface p-8 text-center h-full">
+                    <span className="text-3xl font-extrabold text-brand-blue">{bilancio.year}</span>
                     <a
                       href={bilancio.href}
                       download
                       aria-label={`Scarica Bilancio ${bilancio.year} in formato PDF`}
-                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#1a3a6b] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#1e9ed6] transition-colors"
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-sky transition-colors"
                     >
                       <Download className="w-4 h-4" aria-hidden="true" />
                       Bilancio {bilancio.year}

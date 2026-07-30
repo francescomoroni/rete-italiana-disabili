@@ -35,9 +35,9 @@ export default function ImpactNumbers() {
   return (
     <section
       aria-labelledby="impact-heading"
-      className="py-20 md:py-28 bg-[#F8FAFC]"
+      className="py-20 md:py-28 bg-brand-surface"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 24 }}
@@ -45,12 +45,12 @@ export default function ImpactNumbers() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[#1e9ed6] font-semibold text-sm uppercase tracking-widest mb-3">
+          <p className="text-accent-sky font-semibold text-sm uppercase tracking-widest mb-3">
             Il nostro impatto
           </p>
           <h2
             id="impact-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1a3a6b] text-balance"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-blue text-balance"
           >
             Numeri che raccontano
             <br />
@@ -62,7 +62,7 @@ export default function ImpactNumbers() {
           {IMPACT_STATS.map((stat, i) => (
             <motion.div
               key={stat.label}
-              className="text-center p-6 bg-white rounded-2xl shadow-sm border border-[#1a3a6b]/6 hover:shadow-md transition-shadow"
+              className="text-center p-6 bg-white rounded-2xl shadow-sm border border-brand-blue/6 hover:shadow-md transition-shadow"
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -71,13 +71,13 @@ export default function ImpactNumbers() {
               <dt className="sr-only">{stat.label}</dt>
               <dd>
                 <p
-                  className="text-4xl sm:text-5xl font-extrabold text-[#1a3a6b] leading-none mb-2"
+                  className="text-4xl sm:text-5xl font-extrabold text-brand-blue leading-none mb-2"
                   aria-hidden="true"
                 >
                   <Counter value={stat.value} suffix={stat.suffix} />
                 </p>
-                <p className="text-sm font-bold text-[#1a3a6b] mb-1">{stat.label}</p>
-                <p className="text-xs text-[#1a3a6b]/55">{stat.description}</p>
+                <p className="text-sm font-bold text-brand-blue mb-1">{stat.label}</p>
+                <p className="text-xs text-brand-blue/55">{stat.description}</p>
               </dd>
             </motion.div>
           ))}
