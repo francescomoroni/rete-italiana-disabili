@@ -40,7 +40,7 @@ export default function PrivacyPage() {
                 </p>
                 <ul className="mt-3 list-disc pl-5 space-y-1">
                   <li>Email: <a href="mailto:info@reteitalianadisabili.it" className="text-accent-sky hover:underline">info@reteitalianadisabili.it</a></li>
-                  <li>Sito web: <a href="https://reteitalianadisabili.it" className="text-accent-sky hover:underline">reteitalianadisabili.it</a></li>
+                  <li>Sito web: <a href="https://reteitalianadisabili.vercel.app/" className="text-accent-sky hover:underline">reteitalianadisabili.vercel.app</a></li>
                 </ul>
               </section>
 

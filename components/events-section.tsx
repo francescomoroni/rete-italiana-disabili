@@ -5,15 +5,19 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, MapPin, MessageCircle, ArrowRight } from 'lucide-react'
 import { EVENTS } from '@/lib/data'
+import { SITE_URL } from '@/lib/seo'
+import SocialShareButtons from '@/components/social-share-buttons'
 
 type EventItem = (typeof EVENTS)[number]
 
 function EventCard({ event, index }: { event: EventItem; index: number }) {
   const isExternal = (href: string) => href.startsWith('http')
+  const eventsPageUrl = `${SITE_URL}/eventi`
 
   return (
     <motion.article
-      className={`overflow-hidden rounded-2xl border border-brand-blue/10 bg-brand-surface shadow-sm ${
+      id={event.id}
+      className={`overflow-hidden rounded-2xl border border-brand-blue/10 bg-brand-surface shadow-sm scroll-mt-28 ${
         event.featured ? 'ring-2 ring-accent-sky/25' : ''
       }`}
       initial={{ opacity: 0, y: 24 }}
@@ -127,43 +131,51 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
             </div>
           )}
 
-          <div className="mt-auto flex flex-wrap items-center gap-3 pt-2">
-            {isExternal(event.ctaPrimary.href) ? (
-              <a
-                href={event.ctaPrimary.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-blue-dark"
-              >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                {event.ctaPrimary.label}
-              </a>
-            ) : (
-              <Link
-                href={event.ctaPrimary.href}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-blue-dark"
-              >
-                {event.ctaPrimary.label}
-              </Link>
-            )}
+          <div className="mt-auto flex flex-col gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3">
+              {isExternal(event.ctaPrimary.href) ? (
+                <a
+                  href={event.ctaPrimary.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-blue-dark"
+                >
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  {event.ctaPrimary.label}
+                </a>
+              ) : (
+                <Link
+                  href={event.ctaPrimary.href}
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-blue-dark"
+                >
+                  {event.ctaPrimary.label}
+                </Link>
+              )}
 
-            {isExternal(event.ctaSecondary.href) ? (
-              <a
-                href={event.ctaSecondary.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-blue-muted"
-              >
-                {event.ctaSecondary.label}
-              </a>
-            ) : (
-              <Link
-                href={event.ctaSecondary.href}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-blue-muted"
-              >
-                {event.ctaSecondary.label}
-              </Link>
-            )}
+              {isExternal(event.ctaSecondary.href) ? (
+                <a
+                  href={event.ctaSecondary.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-blue-muted"
+                >
+                  {event.ctaSecondary.label}
+                </a>
+              ) : (
+                <Link
+                  href={event.ctaSecondary.href}
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-blue-muted"
+                >
+                  {event.ctaSecondary.label}
+                </Link>
+              )}
+            </div>
+
+            <SocialShareButtons
+              title={event.title}
+              url={eventsPageUrl}
+              text={`${event.title} — ${event.dateLabel}`}
+            />
           </div>
         </div>
       </div>

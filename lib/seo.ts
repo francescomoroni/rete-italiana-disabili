@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-export const SITE_URL = 'https://reteitalianadisabili.it'
+export const SITE_URL = 'https://reteitalianadisabili.vercel.app'
 export const SITE_NAME = 'Rete Italiana Disabili APS'
 export const SITE_TAGLINE = 'Inclusione, Diritti e Sostegno'
 

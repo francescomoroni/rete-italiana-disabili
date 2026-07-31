@@ -11,11 +11,12 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Link2,
   Users,
 } from 'lucide-react'
 import type { Project } from '@/lib/data'
 import { PROJECTS } from '@/lib/data'
+import { SITE_URL } from '@/lib/seo'
+import SocialShareButtons from '@/components/social-share-buttons'
 
 const TAG_COLORS: Record<string, { bg: string; text: string }> = {
   sky: { bg: '#e8f5fb', text: '#1e9ed6' },
@@ -28,34 +29,11 @@ const TAG_COLORS: Record<string, { bg: string; text: string }> = {
   purple: { bg: '#f0ebfa', text: '#7c3aed' },
 }
 
-function ShareButton({
-  href,
-  label,
-  children,
-}: {
-  href: string
-  label: string
-  children: React.ReactNode
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-brand-blue/12 text-brand-blue/70 hover:text-brand-blue hover:border-brand-blue/30 hover:bg-brand-blue-soft transition-all text-sm font-medium"
-    >
-      {children}
-    </a>
-  )
-}
-
 export default function ProjectDetail({ project }: { project: Project }) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  const [copied, setCopied] = useState(false)
   const [heroImageAttempt, setHeroImageAttempt] = useState(0)
   const [pageUrl, setPageUrl] = useState(
-    `https://reteitalianadisabili.it/progetti/${project.slug}`
+    `${SITE_URL}/progetti/${project.slug}`
   )
 
   const colors = TAG_COLORS[project.categoryColor] || TAG_COLORS.blue
@@ -78,8 +56,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
   ).slice(0, 3)
 
   useEffect(() => {
-    setPageUrl(window.location.href)
-  }, [])
+    setPageUrl(window.location.href.split('#')[0] || `${SITE_URL}/progetti/${project.slug}`)
+  }, [project.slug])
 
   useEffect(() => {
     if (lightboxIndex === null) return
@@ -104,18 +82,8 @@ export default function ProjectDetail({ project }: { project: Project }) {
     }
   }, [lightboxIndex, gallery.length])
 
-  const shareTitle = encodeURIComponent(project.title)
-  const shareUrl = encodeURIComponent(pageUrl)
-
-  function copyLink() {
-    navigator.clipboard.writeText(pageUrl).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    })
-  }
-
   return (
-    <article className="bg-white">
+    <article className="bg-white pt-8">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <Link
           href="/progetti"
@@ -242,44 +210,11 @@ export default function ProjectDetail({ project }: { project: Project }) {
 
         {/* Social share */}
         <div className="pt-8 border-t border-brand-blue/8">
-          <h2 className="text-base font-bold text-brand-blue uppercase tracking-widest mb-4">
-            Condividi
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <ShareButton
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
-              label="Condividi su Facebook"
-            >
-              Facebook
-            </ShareButton>
-            <ShareButton
-              href={`https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}`}
-              label="Condividi su X / Twitter"
-            >
-              X / Twitter
-            </ShareButton>
-            <ShareButton
-              href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-              label="Condividi su LinkedIn"
-            >
-              LinkedIn
-            </ShareButton>
-            <ShareButton
-              href={`https://wa.me/?text=${shareTitle}%20${shareUrl}`}
-              label="Condividi su WhatsApp"
-            >
-              WhatsApp
-            </ShareButton>
-            <button
-              type="button"
-              onClick={copyLink}
-              aria-label="Copia il link"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-brand-blue/12 text-brand-blue/70 hover:text-brand-blue hover:border-brand-blue/30 hover:bg-brand-blue-soft transition-all text-sm font-medium"
-            >
-              <Link2 className="w-4 h-4" aria-hidden="true" />
-              {copied ? 'Link copiato!' : 'Copia link'}
-            </button>
-          </div>
+          <SocialShareButtons
+            title={project.title}
+            url={pageUrl}
+            text={project.title}
+          />
         </div>
       </div>
 
