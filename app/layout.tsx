@@ -82,7 +82,7 @@ const organizationJsonLd = {
   '@id': `${SITE_URL}/#organization`,
   name: ORGANIZATION.name,
   legalName: ORGANIZATION.legalName,
-  alternateName: ['Rete Italiana Disabili', 'RID ETS', 'Noi Siamo Rete'],
+  alternateName: ['Rete Italiana Disabili', 'RID APS', 'Noi Siamo Rete'],
   url: ORGANIZATION.url,
   logo: {
     '@type': 'ImageObject',

@@ -40,10 +40,10 @@ export default function Footer() {
         <div className="py-14 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <Link href="/" className="inline-flex mb-5" aria-label="Rete Italiana Disabili ETS – Homepage">
+            <Link href="/" className="inline-flex mb-5" aria-label="Rete Italiana Disabili APS - Homepage">
               <Image
                 src="/images/logo.jpg"
-                alt="Rete Italiana Disabili ETS – Noi Siamo Rete"
+                alt="Rete Italiana Disabili APS - Noi Siamo Rete"
                 width={72}
                 height={72}
                 className="rounded-full object-contain bg-white p-0.5"
@@ -103,7 +103,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/40">
-            © {currentYear} Rete Italiana Disabili ETS – C.F. 94083440589 – Tutti i diritti riservati
+            © {currentYear} Rete Italiana Disabili APS - C.F. 94083440589 - Tutti i diritti riservati
           </p>
           <p className="text-xs text-white/40 flex items-center gap-1.5">
             Fatto con

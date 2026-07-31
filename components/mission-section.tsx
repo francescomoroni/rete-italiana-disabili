@@ -44,7 +44,7 @@ export default function MissionSection() {
               di vivere pienamente.
             </h2>
             <p className="text-lg text-brand-blue/70 leading-relaxed mb-6">
-              Rete Italiana Disabili ETS nasce dalla convinzione che l&apos;inclusione non sia
+              Rete Italiana Disabili APS nasce dalla convinzione che l&apos;inclusione non sia
               un&apos;utopia, ma un obiettivo concreto e raggiungibile. Lavoriamo con le persone,
               non per le persone — ascoltando, coordinando e agendo.
             </p>

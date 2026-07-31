@@ -10,7 +10,7 @@ import { ORGANIZATION, pageMetadata, SITE_NAME, SITE_URL } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Contatti',
   description:
-    'Contatta Rete Italiana Disabili ETS: email, telefono e sede a Roma. Rispondiamo a domande su diritti, servizi, volontariato e come diventare socio.',
+    'Contatta Rete Italiana Disabili APS: email, telefono e sede a Roma. Rispondiamo a domande su diritti, servizi, volontariato e come diventare socio.',
   path: '/contatti',
 })
 
@@ -57,7 +57,7 @@ export default function ContattiPage() {
           name: 'Contatti',
           url: `${SITE_URL}/contatti`,
           description:
-            'Contatta Rete Italiana Disabili ETS: email, telefono e sede a Roma.',
+            'Contatta Rete Italiana Disabili APS: email, telefono e sede a Roma.',
           mainEntity: {
             '@type': 'NGO',
             name: SITE_NAME,

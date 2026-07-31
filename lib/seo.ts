@@ -1,18 +1,18 @@
 import type { Metadata } from 'next'
 
 export const SITE_URL = 'https://reteitalianadisabili.it'
-export const SITE_NAME = 'Rete Italiana Disabili ETS'
+export const SITE_NAME = 'Rete Italiana Disabili APS'
 export const SITE_TAGLINE = 'Inclusione, Diritti e Sostegno'
 
 export const SITE_DESCRIPTION =
-  'Rete Italiana Disabili ETS promuove diritti, inclusione, sostegno alle famiglie e progetti concreti per migliorare la qualità della vita delle persone con disabilità in Italia.'
+  'Rete Italiana Disabili APS promuove diritti, inclusione, sostegno alle famiglie e progetti concreti per migliorare la qualità della vita delle persone con disabilità in Italia.'
 
 export const SITE_KEYWORDS = [
   'disabilità',
   'inclusione',
   'diritti disabili',
   'associazione disabili Italia',
-  'ETS disabilità',
+  'APS disabilità',
   'sostegno famiglie disabilità',
   'accessibilità',
   'terzo settore',
@@ -26,12 +26,12 @@ export const DEFAULT_OG_IMAGE = {
   url: '/images/hero.webp',
   width: 1920,
   height: 1080,
-  alt: 'Persone con disabilità che partecipano attivamente alla vita sociale – Rete Italiana Disabili ETS',
+  alt: 'Persone con disabilità che partecipano attivamente alla vita sociale - Rete Italiana Disabili APS',
 } as const
 
 export const ORGANIZATION = {
   name: SITE_NAME,
-  legalName: 'Rete Italiana Disabili ETS',
+  legalName: 'Rete Italiana Disabili APS',
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo.jpg`,
   email: 'inforeteitalianadisabili@gmail.com',

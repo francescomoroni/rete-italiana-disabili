@@ -9,7 +9,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Cookie Policy',
   description:
-    'Informativa sui cookie utilizzati dal sito di Rete Italiana Disabili ETS, in conformità al GDPR e alle Linee guida del Garante Privacy.',
+    'Informativa sui cookie utilizzati dal sito di Rete Italiana Disabili APS, in conformità al GDPR e alle Linee guida del Garante Privacy.',
   path: '/cookie',
 })
 
@@ -49,7 +49,7 @@ export default function CookiePage() {
               <section>
                 <h2 className="text-xl font-bold text-brand-blue mb-3">2. Titolare</h2>
                 <p>
-                  Il Titolare del trattamento è <strong className="text-brand-blue">Rete Italiana Disabili ETS</strong>.
+                  Il Titolare del trattamento è <strong className="text-brand-blue">Rete Italiana Disabili APS</strong>.
                   Per contatti: {' '}
                   <a href="mailto:info@reteitalianadisabili.it" className="text-accent-sky hover:underline">info@reteitalianadisabili.it</a>.
                 </p>

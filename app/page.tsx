@@ -16,9 +16,9 @@ import Footer from '@/components/footer'
 import { pageMetadata, SITE_NAME, SITE_TAGLINE } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
-  title: `${SITE_NAME} – ${SITE_TAGLINE}`,
+  title: `${SITE_NAME} - ${SITE_TAGLINE}`,
   description:
-    'Rete Italiana Disabili ETS: promuoviamo diritti, inclusione e sostegno concreto per le persone con disabilità in Italia. Scopri i nostri progetti, eventi e come diventare socio.',
+    'Rete Italiana Disabili APS: promuoviamo diritti, inclusione e sostegno concreto per le persone con disabilità in Italia. Scopri i nostri progetti, eventi e come diventare socio.',
   path: '/',
   absoluteTitle: true,
 })

@@ -26,7 +26,7 @@ export default function PartnersSection() {
         <ul
           className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4"
           role="list"
-          aria-label="Sponsor e partner di Rete Italiana Disabili ETS"
+          aria-label="Sponsor e partner di Rete Italiana Disabili APS"
         >
           {SPONSORS.map((sponsor, i) => (
             <motion.li

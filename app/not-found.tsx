@@ -6,7 +6,7 @@ import { Home, ArrowLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Pagina non trovata (404)',
-  description: 'La pagina che cerchi non esiste. Torna alla homepage di Rete Italiana Disabili ETS.',
+  description: 'La pagina che cerchi non esiste. Torna alla homepage di Rete Italiana Disabili APS.',
   robots: { index: false, follow: false },
 }
 

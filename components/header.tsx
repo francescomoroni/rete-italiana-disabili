@@ -38,11 +38,11 @@ export default function Header() {
           <Link
             href="/"
             className="flex items-center group"
-            aria-label="Rete Italiana Disabili ETS – Homepage"
+            aria-label="Rete Italiana Disabili APS - Homepage"
           >
             <Image
               src="/images/logo.jpg"
-              alt="Rete Italiana Disabili ETS – Noi Siamo Rete"
+              alt="Rete Italiana Disabili APS - Noi Siamo Rete"
               width={100}
               height={100}
               className="h-16 w-16 md:h-32 md:w-32 rounded-full object-contain group-hover:scale-105 transition-transform duration-200"
@@ -74,7 +74,7 @@ export default function Header() {
             <Link
               href="/sostienici"
               className="hidden md:flex items-center gap-2 px-4 py-2 bg-brand-blue text-white text-sm font-semibold rounded-xl hover:bg-brand-blue-dark transition-colors shadow-md hover:shadow-lg"
-              aria-label="Dona ora a Rete Italiana Disabili ETS"
+              aria-label="Dona ora a Rete Italiana Disabili APS"
             >
               <Heart className="w-4 h-4" aria-hidden="true" />
               Dona Ora

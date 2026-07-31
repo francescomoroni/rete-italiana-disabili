@@ -9,7 +9,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Missione',
   description:
-    'La missione di Rete Italiana Disabili ETS: promuovere inclusione, difendere i diritti e favorire la partecipazione delle persone con disabilità.',
+    'La missione di Rete Italiana Disabili APS: promuovere inclusione, difendere i diritti e favorire la partecipazione delle persone con disabilità.',
   path: '/missione',
 })
 

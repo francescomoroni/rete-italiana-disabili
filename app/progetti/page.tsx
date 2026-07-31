@@ -11,7 +11,7 @@ import { absoluteUrl, pageMetadata, SITE_NAME, SITE_URL } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Progetti di inclusione',
   description:
-    'Scopri i progetti di Rete Italiana Disabili ETS: sport inclusivo, cultura, salute, turismo accessibile e iniziative di solidarietà in tutta Italia.',
+    'Scopri i progetti di Rete Italiana Disabili APS: sport inclusivo, cultura, salute, turismo accessibile e iniziative di solidarietà in tutta Italia.',
   path: '/progetti',
 })
 
@@ -20,7 +20,7 @@ const progettiJsonLd = {
   '@type': 'CollectionPage',
   name: 'Progetti di inclusione',
   description:
-    'Progetti di sport inclusivo, cultura, salute e solidarietà di Rete Italiana Disabili ETS.',
+    'Progetti di sport inclusivo, cultura, salute e solidarietà di Rete Italiana Disabili APS.',
   url: `${SITE_URL}/progetti`,
   isPartOf: { '@id': `${SITE_URL}/#website` },
   about: {

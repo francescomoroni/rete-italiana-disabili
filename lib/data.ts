@@ -676,7 +676,7 @@ export const TESTIMONIALS = [
     id: '1',
     name: 'Marco Ferretti',
     role: 'Padre di Lorenzo, 14 anni',
-    text: 'Grazie a Rete Italiana Disabili ETS abbiamo trovato il supporto che cercavamo per Lorenzo. Non ci siamo mai sentiti soli in questo percorso.',
+    text: 'Grazie a Rete Italiana Disabili APS abbiamo trovato il supporto che cercavamo per Lorenzo. Non ci siamo mai sentiti soli in questo percorso.',
     avatar: '/images/testimonials/marco.jpg',
   },
   {

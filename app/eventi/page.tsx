@@ -11,7 +11,7 @@ import { absoluteUrl, ORGANIZATION, pageMetadata, SITE_NAME, SITE_URL } from '@/
 export const metadata: Metadata = pageMetadata({
   title: 'Eventi',
   description:
-    'Prossimi eventi di Rete Italiana Disabili ETS: A Tutto Campo Speciale Serale e corso di padel inclusivo al Tennis Club Vigna Fiorita di Ciampino.',
+    'Prossimi eventi di Rete Italiana Disabili APS: A Tutto Campo Speciale Serale e corso di padel inclusivo al Tennis Club Vigna Fiorita di Ciampino.',
   path: '/eventi',
 })
 

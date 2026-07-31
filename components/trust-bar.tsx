@@ -5,7 +5,7 @@ import { Award, Shield, Globe, Accessibility, Building2, HeartHandshake } from '
 
 const TRUST_ITEMS = [
   { icon: Award, label: 'Associazione Riconosciuta', color: '#1a3a6b' },
-  { icon: Shield, label: 'ETS Certificata', color: '#27a55a' },
+  { icon: Shield, label: 'APS Certificata', color: '#27a55a' },
   { icon: HeartHandshake, label: 'Trasparenza Totale', color: '#1e9ed6' },
   { icon: Globe, label: 'Inclusione Attiva', color: '#f07030' },
   { icon: Accessibility, label: 'Accessibilità WCAG 2.2', color: '#c0287a' },

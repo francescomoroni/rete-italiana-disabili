@@ -10,7 +10,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Trasparenza',
   description:
-    'Documenti e bilanci di Rete Italiana Disabili ETS. In conformità al D.Lgs. 117/2017 pubblichiamo i bilanci annuali a disposizione di soci e cittadini.',
+    'Documenti e bilanci di Rete Italiana Disabili APS. In conformità al D.Lgs. 117/2017 pubblichiamo i bilanci annuali a disposizione di soci e cittadini.',
   path: '/trasparenza',
 })
 

@@ -12,7 +12,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Sponsor e partner',
   description:
-    'I progetti di inclusione di Rete Italiana Disabili ETS sono realizzati grazie al supporto di sponsor, partner istituzionali e patrocini.',
+    'I progetti di inclusione di Rete Italiana Disabili APS sono realizzati grazie al supporto di sponsor, partner istituzionali e patrocini.',
   path: '/sponsor',
 })
 

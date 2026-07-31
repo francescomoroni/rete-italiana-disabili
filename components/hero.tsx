@@ -18,7 +18,7 @@ const DOTS = [
 export default function Hero() {
   return (
     <section
-      aria-label="Benvenuto in Rete Italiana Disabili ETS"
+      aria-label="Benvenuto in Rete Italiana Disabili APS"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background image */}
@@ -85,7 +85,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
           >
-            Rete Italiana Disabili ETS promuove diritti, inclusione e sostegno alle famiglie.
+            Rete Italiana Disabili APS promuove diritti, inclusione e sostegno alle famiglie.
             Lavoriamo ogni giorno per migliorare concretamente la qualità della vita delle persone
             con disabilità in tutta Italia.
           </motion.p>

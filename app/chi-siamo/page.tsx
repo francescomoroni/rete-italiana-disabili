@@ -10,7 +10,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Chi Siamo',
   description:
-    "Scopri la storia, i valori e il team di Rete Italiana Disabili ETS. Un'associazione nata dalla passione per i diritti e la dignità delle persone con disabilità.",
+    "Scopri la storia, i valori e il team di Rete Italiana Disabili APS. Un'associazione nata dalla passione per i diritti e la dignità delle persone con disabilità.",
   path: '/chi-siamo',
 })
 
@@ -29,7 +29,7 @@ export default function ChiSiamoPage() {
         <PageHeader
           eyebrow="La nostra storia"
           title="Chi siamo e perché esistiamo."
-          description="Rete Italiana Disabili ETS nasce nel 2020 da un gruppo di persone con disabilità, famiglie e professionisti stanchi di aspettare cambiamenti che non arrivavano."
+          description="Rete Italiana Disabili APS nasce nel 2020 da un gruppo di persone con disabilità, famiglie e professionisti stanchi di aspettare cambiamenti che non arrivavano."
           breadcrumbs={[{ label: 'Chi Siamo' }]}
         />
 

@@ -9,7 +9,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Privacy Policy',
   description:
-    'Informativa sulla privacy di Rete Italiana Disabili ETS ai sensi del Regolamento (UE) 2016/679 (GDPR) e del D.Lgs. 196/2003.',
+    'Informativa sulla privacy di Rete Italiana Disabili APS ai sensi del Regolamento (UE) 2016/679 (GDPR) e del D.Lgs. 196/2003.',
   path: '/privacy',
 })
 
@@ -35,7 +35,7 @@ export default function PrivacyPage() {
               <section>
                 <h2 className="text-xl font-bold text-brand-blue mb-3">1. Titolare del trattamento</h2>
                 <p>
-                  Il Titolare del trattamento dei dati personali è <strong className="text-brand-blue">Rete Italiana Disabili ETS</strong>
+                  Il Titolare del trattamento dei dati personali è <strong className="text-brand-blue">Rete Italiana Disabili APS</strong>
                   (di seguito anche &quot;Associazione&quot; o &quot;Titolare&quot;).
                 </p>
                 <ul className="mt-3 list-disc pl-5 space-y-1">

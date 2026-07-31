@@ -12,7 +12,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Diventa Socio',
   description:
-    "Unisciti a Rete Italiana Disabili ETS come socio o volontario e contribuisci attivamente alla promozione dei diritti e dell'inclusione delle persone con disabilità.",
+    "Unisciti a Rete Italiana Disabili APS come socio o volontario e contribuisci attivamente alla promozione dei diritti e dell'inclusione delle persone con disabilità.",
   path: '/diventa-socio',
 })
 
@@ -24,8 +24,8 @@ const MODULI = [
     icon: User,
   },
   {
-    title: 'ETS e persone giuridiche',
-    description: 'Riservato ad Enti del Terzo Settore (ETS) e persone giuridiche',
+    title: 'APS e persone giuridiche',
+    description: 'Riservato ad Enti del Terzo Settore (APS) e persone giuridiche',
     href: '/documents/modulo-iscrizione-ets.pdf',
     icon: Building2,
   },

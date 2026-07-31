@@ -9,7 +9,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Sostienici',
   description:
-    'Dona a Rete Italiana Disabili ETS e aiutaci a promuovere i diritti delle persone con disabilità. Donazione detraibile fiscalmente, pagamento sicuro.',
+    'Dona a Rete Italiana Disabili APS e aiutaci a promuovere i diritti delle persone con disabilità. Donazione detraibile fiscalmente, pagamento sicuro.',
   path: '/sostienici',
 })
 

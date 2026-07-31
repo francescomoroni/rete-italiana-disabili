@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
-export const alt = 'Rete Italiana Disabili ETS – Inclusione, Diritti e Sostegno'
+export const alt = 'Rete Italiana Disabili APS - Inclusione, Diritti e Sostegno'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -54,7 +54,7 @@ export default async function Image() {
               lineHeight: 1.15,
             }}
           >
-            Rete Italiana Disabili ETS
+            Rete Italiana Disabili APS
           </div>
           <div
             style={{
