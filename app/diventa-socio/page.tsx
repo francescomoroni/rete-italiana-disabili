@@ -6,6 +6,7 @@ import Footer from '@/components/footer'
 import PageHeader from '@/components/page-header'
 import ServicesSection from '@/components/services-section'
 import FinalCTA from '@/components/final-cta'
+import MembershipForm from '@/components/membership-form'
 
 import { pageMetadata } from '@/lib/seo'
 
@@ -114,107 +115,7 @@ export default function DiventaSocioPage() {
               Preferisci compilare online? Inviaci la richiesta e ti contatteremo entro 48 ore.
             </p>
 
-            <form
-              className="flex flex-col gap-5 bg-white p-8 rounded-2xl border border-brand-blue/8"
-              aria-label="Modulo di richiesta iscrizione"
-              noValidate
-            >
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="nome" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                    Nome <span aria-hidden="true" className="text-accent-coral">*</span>
-                    <span className="sr-only">(obbligatorio)</span>
-                  </label>
-                  <input
-                    id="nome"
-                    type="text"
-                    autoComplete="given-name"
-                    required
-                    className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                    aria-required="true"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="cognome" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                    Cognome <span aria-hidden="true" className="text-accent-coral">*</span>
-                    <span className="sr-only">(obbligatorio)</span>
-                  </label>
-                  <input
-                    id="cognome"
-                    type="text"
-                    autoComplete="family-name"
-                    required
-                    className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                    aria-required="true"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                  Email <span aria-hidden="true" className="text-accent-coral">*</span>
-                  <span className="sr-only">(obbligatorio)</span>
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                  aria-required="true"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="telefono" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                  Telefono
-                </label>
-                <input
-                  id="telefono"
-                  type="tel"
-                  autoComplete="tel"
-                  className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="motivazione" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                  Perché vuoi diventare socio?
-                </label>
-                <textarea
-                  id="motivazione"
-                  rows={4}
-                  className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base resize-none"
-                  aria-describedby="motivazione-hint"
-                />
-                <p id="motivazione-hint" className="text-xs text-brand-blue/40 mt-1">Facoltativo, ma ci aiuta a conoscerti meglio.</p>
-              </div>
-
-              <div>
-                <label className="flex items-start gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    required
-                    className="w-4 h-4 mt-1 accent-brand-blue"
-                    aria-required="true"
-                  />
-                  <span className="text-sm text-brand-blue/70">
-                    Accetto il trattamento dei dati personali secondo la{' '}
-                    <a href="/privacy" className="underline text-brand-blue hover:text-brand-blue-light">
-                      Privacy Policy
-                    </a>
-                    {' '}(obbligatorio)
-                  </span>
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-4 bg-brand-blue text-white font-bold rounded-xl hover:bg-brand-blue-dark transition-colors shadow-lg text-base"
-              >
-                Invia la richiesta di iscrizione
-              </button>
-            </form>
+            <MembershipForm />
           </div>
         </section>
 

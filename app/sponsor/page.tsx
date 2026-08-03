@@ -62,7 +62,7 @@ export default function SponsorPage() {
             >
               {SPONSORS.map((sponsor) => (
                 <li key={sponsor.logo}>
-                  <article className="flex flex-col items-center justify-center gap-3 h-full min-h-[140px] p-5 rounded-2xl border border-brand-blue/8 bg-white shadow-sm hover:shadow-md hover:border-brand-blue/15 transition-all">
+                  <article className="flex flex-col items-center justify-center gap-3 h-full min-h-35 p-5 rounded-2xl border border-brand-blue/8 bg-white shadow-sm hover:shadow-md hover:border-brand-blue/15 transition-all">
                     <div className="relative w-full h-16">
                       <Image
                         src={sponsor.logo}

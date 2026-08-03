@@ -3,6 +3,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import PageHeader from '@/components/page-header'
 import JsonLd from '@/components/json-ld'
+import ContactForm from '@/components/contact-form'
 import { SOCIAL_LINKS } from '@/components/social-icons'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 import { ORGANIZATION, pageMetadata, SITE_NAME, SITE_URL } from '@/lib/seo'
@@ -139,137 +140,7 @@ export default function ContattiPage() {
                 <h2 className="text-2xl font-extrabold text-brand-blue mb-8">
                   Inviaci un messaggio
                 </h2>
-                <form
-                  className="flex flex-col gap-5"
-                  aria-label="Modulo di contatto"
-                  noValidate
-                >
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="nome" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                        Nome <span aria-hidden="true" className="text-accent-coral">*</span>
-                        <span className="sr-only">(obbligatorio)</span>
-                      </label>
-                      <input
-                        id="nome"
-                        name="nome"
-                        type="text"
-                        autoComplete="given-name"
-                        required
-                        className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                        aria-required="true"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="cognome" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                        Cognome
-                      </label>
-                      <input
-                        id="cognome"
-                        name="cognome"
-                        type="text"
-                        autoComplete="family-name"
-                        className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="email-contatto" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                      Email <span aria-hidden="true" className="text-accent-coral">*</span>
-                      <span className="sr-only">(obbligatorio)</span>
-                    </label>
-                    <input
-                      id="email-contatto"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                      aria-required="true"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="telefono-contatto" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                      Telefono
-                    </label>
-                    <input
-                      id="telefono-contatto"
-                      name="telefono"
-                      type="tel"
-                      autoComplete="tel"
-                      className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="oggetto" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                      Oggetto <span aria-hidden="true" className="text-accent-coral">*</span>
-                      <span className="sr-only">(obbligatorio)</span>
-                    </label>
-                    <select
-                      id="oggetto"
-                      name="oggetto"
-                      required
-                      className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base"
-                      aria-required="true"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Seleziona un argomento
-                      </option>
-                      <option value="informazioni">Richiesta informazioni generali</option>
-                      <option value="iscrizione">Iscrizione come socio</option>
-                      <option value="donazione">Donazioni</option>
-                      <option value="progetti">Collaborazione su progetti</option>
-                      <option value="eventi">Eventi</option>
-                      <option value="media">Richiesta media/stampa</option>
-                      <option value="altro">Altro</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="messaggio" className="block text-sm font-semibold text-brand-blue mb-1.5">
-                      Messaggio <span aria-hidden="true" className="text-accent-coral">*</span>
-                      <span className="sr-only">(obbligatorio)</span>
-                    </label>
-                    <textarea
-                      id="messaggio"
-                      name="messaggio"
-                      rows={5}
-                      required
-                      className="w-full px-4 py-3 border-2 border-brand-blue/15 rounded-xl text-brand-blue focus:border-brand-blue focus:outline-none transition-colors bg-white text-base resize-none"
-                      aria-required="true"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="privacy"
-                        required
-                        className="w-4 h-4 mt-1 accent-brand-blue"
-                        aria-required="true"
-                      />
-                      <span className="text-sm text-brand-blue/70">
-                        Ho letto e accetto la{' '}
-                        <a href="/privacy" className="underline text-brand-blue hover:text-brand-blue-light">
-                          Privacy Policy
-                        </a>
-                        {' '}(obbligatorio)
-                      </span>
-                    </label>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-4 bg-brand-blue text-white font-bold rounded-xl hover:bg-brand-blue-dark transition-colors shadow-lg text-base"
-                  >
-                    Invia messaggio
-                  </button>
-                </form>
+                <ContactForm />
               </div>
             </div>
           </div>
