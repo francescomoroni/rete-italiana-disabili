@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
 import PageHeader from '@/components/page-header'
-import DonationsSection from '@/components/donations-section'
+import DonationsSection, {
+  type CheckoutStatus,
+} from '@/components/donations-section'
 import FinalCTA from '@/components/final-cta'
 import { pageMetadata } from '@/lib/seo'
 
@@ -13,7 +15,22 @@ export const metadata: Metadata = pageMetadata({
   path: '/sostienici',
 })
 
-export default function SostieniciPage() {
+function parseCheckoutStatus(
+  value: string | string[] | undefined,
+): CheckoutStatus | null {
+  const status = Array.isArray(value) ? value[0] : value
+  if (status === 'success' || status === 'cancel') return status
+  return null
+}
+
+export default async function SostieniciPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ status?: string | string[] }>
+}) {
+  const params = await searchParams
+  const checkoutStatus = parseCheckoutStatus(params.status)
+
   return (
     <>
       <Header />
@@ -26,7 +43,7 @@ export default function SostieniciPage() {
           accentColor="#e84c5a"
         />
 
-        {/* <DonationsSection /> */}
+        {/* <DonationsSection checkoutStatus={checkoutStatus} /> */}
 
         {/* Bank transfer info */}
         <section aria-labelledby="bonifico-heading" className="py-16 bg-white">
