@@ -8,7 +8,7 @@ export const contentType = 'image/png'
 
 export default async function Image() {
   const logoData = await readFile(join(process.cwd(), 'public/images/logo.png'), 'base64')
-  const logoSrc = `data:image/jpeg;base64,${logoData}`
+  const logoSrc = `data:image/png;base64,${logoData}`
 
   return new ImageResponse(
     (
@@ -31,7 +31,8 @@ export default async function Image() {
           alt=""
           style={{
             borderRadius: '50%',
-            objectFit: 'cover',
+            objectFit: 'contain',
+            background: 'white',
             boxShadow: '0 12px 40px rgba(0,0,0,0.35)',
           }}
         />
