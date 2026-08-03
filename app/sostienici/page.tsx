@@ -26,7 +26,7 @@ export default function SostieniciPage() {
           accentColor="#e84c5a"
         />
 
-        <DonationsSection />
+        {/* <DonationsSection /> */}
 
         {/* Bank transfer info */}
         <section aria-labelledby="bonifico-heading" className="py-16 bg-white">
