@@ -65,7 +65,7 @@ export default async function ProgettoDetailPage({ params }: Props) {
         name: SITE_NAME,
         logo: {
           '@type': 'ImageObject',
-          url: `${SITE_URL}/images/logo.jpg`,
+          url: `${SITE_URL}/images/logo.png`,
         },
       },
       mainEntityOfPage: pageUrl,

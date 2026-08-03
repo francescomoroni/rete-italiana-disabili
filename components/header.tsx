@@ -33,21 +33,23 @@ export default function Header() {
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 md:h-32">
+        <div className="flex items-center justify-between h-18 md:h-36">
           {/* Logo */}
           <Link
             href="/"
             className="flex items-center group"
             aria-label="Rete Italiana Disabili APS - Homepage"
           >
-            <Image
-              src="/images/logo.jpg"
-              alt="Rete Italiana Disabili APS - Noi Siamo Rete"
-              width={100}
-              height={100}
-              className="h-16 w-16 md:h-32 md:w-32 rounded-full object-contain group-hover:scale-105 transition-transform duration-200"
-              priority
-            />
+            <span className="relative flex h-16 w-16 md:h-30 md:w-30 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white">
+              <Image
+                src="/images/logo.png"
+                alt="Rete Italiana Disabili APS - Noi Siamo Rete"
+                width={100}
+                height={100}
+                className="h-[118%] w-[118%] max-w-none object-contain transition-transform duration-200 group-hover:scale-105"
+                priority
+              />
+            </span>
           </Link>
 
           {/* Desktop Nav */}

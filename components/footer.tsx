@@ -42,10 +42,10 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <Link href="/" className="inline-flex mb-5" aria-label="Rete Italiana Disabili APS - Homepage">
               <Image
-                src="/images/logo.jpg"
+                src="/images/logo.png"
                 alt="Rete Italiana Disabili APS - Noi Siamo Rete"
-                width={72}
-                height={72}
+                width={100}
+                height={100}
                 className="rounded-full object-contain bg-white p-0.5"
               />
             </Link>

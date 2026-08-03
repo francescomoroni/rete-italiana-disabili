@@ -47,7 +47,7 @@ export default function ProjectsSection({
     return [
       isPlaceholderCover ? undefined : project.image,
       project.gallery?.[0]?.src,
-      '/images/logo.jpg',
+      '/images/logo.png',
     ].filter(Boolean) as string[]
   }
 

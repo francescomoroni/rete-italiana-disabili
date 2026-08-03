@@ -44,7 +44,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
   const heroImageCandidates = [
     isPlaceholderCover ? undefined : project.image,
     gallery[0]?.src,
-    '/images/logo.jpg',
+    '/images/logo.png',
   ].filter(Boolean) as string[]
   const heroImage = heroImageCandidates[
     Math.min(heroImageAttempt, heroImageCandidates.length - 1)

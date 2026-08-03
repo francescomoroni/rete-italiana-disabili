@@ -33,7 +33,7 @@ export const ORGANIZATION = {
   name: SITE_NAME,
   legalName: 'Rete Italiana Disabili APS',
   url: SITE_URL,
-  logo: `${SITE_URL}/images/logo.jpg`,
+  logo: `${SITE_URL}/images/logo.png`,
   email: 'inforeteitalianadisabili@gmail.com',
   telephone: '+39-333-296-7651',
   address: {
