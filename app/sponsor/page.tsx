@@ -40,6 +40,7 @@ export default function SponsorPage() {
               Scarica la brochure di presentazione dell&apos;associazione per conoscere meglio i
               nostri progetti e le opportunità di collaborazione.
             </p>
+            {/* test */}
             <a
               href="/documents/presentazione-rete-italiana-disabili.pdf"
               download
