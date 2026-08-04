@@ -43,7 +43,7 @@ export default async function SostieniciPage({
           accentColor="#e84c5a"
         />
 
-        {/* <DonationsSection checkoutStatus={checkoutStatus} /> */}
+        <DonationsSection checkoutStatus={checkoutStatus} />
 
         {/* Bank transfer info */}
         <section aria-labelledby="bonifico-heading" className="py-16 bg-white">
