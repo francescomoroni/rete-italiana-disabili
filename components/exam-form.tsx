@@ -9,6 +9,7 @@ import {
   EXAM_RESULT_STORAGE_KEY,
   type ExamParticipant,
 } from '@/lib/exam-data'
+import { scoreExam } from '@/lib/exam-scoring'
 
 type Status = 'loading' | 'ready' | 'submitting' | 'success'
 
@@ -41,7 +42,7 @@ export default function ExamForm() {
     }
   }, [router])
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (!participant) return
 
@@ -61,45 +62,31 @@ export default function ExamForm() {
     setStatus('submitting')
     setErrorMessage('')
 
-    try {
-      const response = await fetch('/api/exam', {
+    const { score, total, passed } = scoreExam(answers)
+    const examResult = {
+      score,
+      total,
+      passed,
+      completedAt: new Date().toISOString(),
+    }
+
+    if (passed) {
+      sessionStorage.setItem(EXAM_RESULT_STORAGE_KEY, JSON.stringify(examResult))
+      router.push('/attestato')
+
+      void fetch('/api/exam', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ participant, answers }),
+        body: JSON.stringify({ participant, answers, score, total }),
+      }).catch(() => {
+        // La notifica email è opzionale: non blocca l'attestato.
       })
 
-      const body = (await response.json()) as {
-        error?: string
-        score?: number
-        total?: number
-        passed?: boolean
-      }
-
-      if (!response.ok) {
-        setStatus('ready')
-        setErrorMessage(body.error || 'Invio non riuscito. Riprova più tardi.')
-        return
-      }
-
-      const examResult = {
-        score: body.score ?? 0,
-        total: body.total ?? EXAM_QUESTIONS.length,
-        passed: Boolean(body.passed),
-        completedAt: new Date().toISOString(),
-      }
-
-      if (examResult.passed) {
-        sessionStorage.setItem(EXAM_RESULT_STORAGE_KEY, JSON.stringify(examResult))
-        router.push('/attestato')
-        return
-      }
-
-      setResult(examResult)
-      setStatus('success')
-    } catch {
-      setStatus('ready')
-      setErrorMessage('Invio non riuscito. Controlla la connessione e riprova.')
+      return
     }
+
+    setResult(examResult)
+    setStatus('success')
   }
 
   function handleRetry() {
