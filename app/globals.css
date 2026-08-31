@@ -162,3 +162,30 @@ html {
   white-space: nowrap;
   border-width: 0;
 }
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  body {
+    background: white !important;
+  }
+
+  .skip-link,
+  header[role='banner'],
+  footer[role='contentinfo'] {
+    display: none !important;
+  }
+
+  .certificate-paper {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    aspect-ratio: auto !important;
+    box-shadow: none !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

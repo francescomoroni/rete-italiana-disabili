@@ -119,3 +119,21 @@ export function absoluteUrl(path: string): string {
   if (path.startsWith('http')) return path
   return path === '/' ? SITE_URL : `${SITE_URL}${path.startsWith('/') ? path : `/${path}`}`
 }
+
+type BreadcrumbItem = { name: string; path: string }
+
+export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      ...items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 2,
+        name: item.name,
+        item: absoluteUrl(item.path),
+      })),
+    ],
+  }
+}

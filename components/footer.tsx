@@ -22,6 +22,7 @@ const FOOTER_LINKS = {
   Supporto: [
     { label: 'Contatti', href: '/contatti' },
     { label: 'Diventa Socio', href: '/diventa-socio' },
+    { label: 'Volontari', href: '/volontari' },
     { label: 'Sostienici', href: '/sostienici' },
   ],
   Legale: [

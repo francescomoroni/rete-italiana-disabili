@@ -13,6 +13,8 @@ const STATIC_ROUTES: {
   { path: '/progetti', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/eventi', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/diventa-socio', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/volontari', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/volontari/test', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/sostienici', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/sponsor', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/contatti', changeFrequency: 'monthly', priority: 0.8 },

@@ -56,7 +56,7 @@ export default function Header() {
           <nav aria-label="Navigazione principale" className="hidden lg:flex items-center gap-1">
             {NAV_LINKS
               .filter((link) => link.href !== '/sostienici')
-              .slice(0, 7)
+              .slice(0, 8)
               .map((link) => (
               <Link
                 key={link.href}

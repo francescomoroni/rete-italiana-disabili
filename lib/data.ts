@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { href: '/progetti', label: 'Progetti' },
   { href: '/eventi', label: 'Eventi' },
   { href: '/diventa-socio', label: 'Diventa Socio' },
+  { href: '/volontari', label: 'Volontari' },
   { href: '/sostienici', label: 'Sostienici' },
   { href: '/contatti', label: 'Contatti' },
 ]
@@ -817,7 +818,7 @@ export const WHO_WE_HELP = [
     description: 'Opportunità di crescita personale e professionale attraverso l\'impegno civile.',
     icon: 'heart',
     color: 'coral',
-    href: '/chi-siamo#volontari',
+    href: '/volontari',
   },
 ]
 

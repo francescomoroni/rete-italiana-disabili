@@ -24,6 +24,4 @@ export function escapeHtml(value: string) {
     .replaceAll("'", '&#39;')
 }
 
-export function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-}
+export { isValidEmail } from '@/lib/validation'
