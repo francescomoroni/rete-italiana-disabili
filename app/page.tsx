@@ -34,7 +34,7 @@ export default function HomePage() {
         <MissionSection />
         <WhoWeHelp />
         <ServicesSection />
-        <EventsSection mobileLimit={2} />
+        <EventsSection homeOnly mobileLimit={2} />
         <ProjectsSection mobileLimit={4} showAllLink />
         <DonationsSection mobilePreview />
         <TestimonialsSection />

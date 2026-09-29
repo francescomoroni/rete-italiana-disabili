@@ -28,14 +28,35 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
       <div className={`grid gap-0 ${event.featured ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-2'}`}>
         {/* Media */}
         <div className="relative aspect-[4/5] w-full bg-brand-blue-muted lg:aspect-auto lg:min-h-[420px]">
-          <Image
-            src={event.image}
-            alt={event.imageAlt}
-            fill
-            className="object-contain"
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            priority={event.featured}
-          />
+          {'video' in event &&
+          event.video &&
+          'videoAsMedia' in event &&
+          event.videoAsMedia ? (
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              src={event.video}
+              poster={event.image}
+              className="absolute inset-0 h-full w-full object-contain bg-black"
+              aria-label={
+                'videoCaption' in event && event.videoCaption
+                  ? event.videoCaption
+                  : event.title
+              }
+            >
+              Il tuo browser non supporta la riproduzione video.
+            </video>
+          ) : (
+            <Image
+              src={event.image}
+              alt={event.imageAlt}
+              fill
+              className="object-contain"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              priority={event.featured}
+            />
+          )}
         </div>
 
         {/* Content */}
@@ -80,9 +101,11 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
             </div>
           </dl>
 
-          <p className="text-base leading-relaxed text-brand-blue/70">{event.description}</p>
+          <p className="whitespace-pre-line text-base leading-relaxed text-brand-blue/70">
+            {event.description}
+          </p>
 
-          {'video' in event && event.video && (
+          {'video' in event && event.video && !('videoAsMedia' in event && event.videoAsMedia) && (
             <div>
               {'videoCaption' in event && event.videoCaption && (
                 <p className="mb-2 text-sm font-semibold text-brand-blue">
@@ -187,14 +210,18 @@ export default function EventsSection({
   showAllLink = true,
   showHeading = true,
   mobileLimit,
+  homeOnly = false,
 }: {
   showAllLink?: boolean
   showHeading?: boolean
   /** On viewports below `md`, only the first N events are shown. */
   mobileLimit?: number
+  /** When true, only events with `showOnHome: true` are listed (banner stays). */
+  homeOnly?: boolean
 }) {
+  const events = homeOnly ? EVENTS.filter((event) => event.showOnHome) : EVENTS
   const isTruncatedOnMobile =
-    typeof mobileLimit === 'number' && mobileLimit < EVENTS.length
+    typeof mobileLimit === 'number' && mobileLimit < events.length
 
   return (
     <section
@@ -204,7 +231,11 @@ export default function EventsSection({
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {showHeading && (
-          <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div
+            className={`flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between ${
+              events.length > 0 ? 'mb-12' : ''
+            }`}
+          >
             <div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-accent-sky">
                 Prossimi eventi
@@ -236,18 +267,20 @@ export default function EventsSection({
           </div>
         )}
 
-        <div className="flex flex-col gap-8">
-          {EVENTS.map((event, i) => (
-            <div
-              key={event.id}
-              className={
-                isTruncatedOnMobile && i >= mobileLimit! ? 'hidden md:block' : undefined
-              }
-            >
-              <EventCard event={event} index={i} />
-            </div>
-          ))}
-        </div>
+        {events.length > 0 && (
+          <div className="flex flex-col gap-8">
+            {events.map((event, i) => (
+              <div
+                key={event.id}
+                className={
+                  isTruncatedOnMobile && i >= mobileLimit! ? 'hidden md:block' : undefined
+                }
+              >
+                <EventCard event={event} index={i} />
+              </div>
+            ))}
+          </div>
+        )}
 
         {isTruncatedOnMobile && (
           <div className="mt-8 flex justify-center md:hidden">

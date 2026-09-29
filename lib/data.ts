@@ -625,6 +625,29 @@ export const PROJECTS: Project[] = [
 
 export const EVENTS = [
   {
+    id: 'lavoro-dignita-inclusione-futuro',
+    title: 'Il lavoro è dignità, inclusione e futuro!',
+    eyebrow: 'Inclusione lavorativa',
+    date: '2026-10-08',
+    dateLabel: 'Giovedì 8 ottobre 2026',
+    time: 'Giornata di tirocinio',
+    location: 'Mensa Microsoft Italia',
+    type: 'Lavoro',
+    description:
+      "In questo inizio 2026 abbiamo festeggiato un traguardo straordinario: l'inserimento lavorativo di due dei nostri splendidi ragazzi, Lorenzo e Gianmarco.\n\nVederli realizzare i loro sogni e sentirli dire di sentirsi parte di una squadra è l'emozione più grande che potremmo desiderare.\n\nMa la nostra missione non si ferma qui: l'8 ottobre ci aspetta una nuova e preziosa giornata di tirocinio presso la mensa Microsoft!\n\nOgni passo avanti è reso possibile grazie al supporto di chi crede nelle potenzialità dei nostri ragazzi, come Microsoft e Compass Group, ma abbiamo bisogno del cuore e dell'aiuto di ciascuno di voi per continuare a creare opportunità concrete.\n\nContinueremo a lavorare ogni giorno per costruire una società realmente per tutti.",
+    image: '/images/projects/tirocinio-microsoft/servizio-mensa-1.webp',
+    imageAlt:
+      'Inclusione lavorativa: i ragazzi di Rete Italiana Disabili in tirocinio presso la mensa Microsoft con Compass Group',
+    featured: true,
+    video: '/videos/event_inclusivity.mp4',
+    videoAsMedia: true,
+    videoCaption: 'La testimonianza di Lorenzo e Gianmarco',
+    ctaPrimary: { label: 'Dona ora', href: '/sostienici' },
+    ctaSecondary: { label: 'Scopri il tirocinio Microsoft', href: '/progetti/tirocinio-microsoft' },
+    upcoming: true,
+    showOnHome: true,
+  },
+  {
     id: 'a-tutto-campo-speciale-serale',
     title: 'A Tutto Campo – Speciale Serale',
     eyebrow: 'Padel inclusivo e giro pizza a bordo campo',
@@ -644,6 +667,7 @@ export const EVENTS = [
     ctaPrimary: { label: 'Prenota via WhatsApp', href: 'https://wa.me/393332967651' },
     ctaSecondary: { label: 'Oppure 392 627 1434', href: 'https://wa.me/393926271434' },
     upcoming: true,
+    showOnHome: false,
   },
   {
     id: 'a-tutto-campo-padel-inclusivo',
@@ -669,6 +693,7 @@ export const EVENTS = [
     ctaPrimary: { label: 'Scrivi su WhatsApp', href: 'https://wa.me/393332967651' },
     ctaSecondary: { label: 'Diventa sponsor', href: '/sponsor' },
     upcoming: true,
+    showOnHome: false,
   },
 ]
 
