@@ -49,7 +49,7 @@ export default function MissionSection() {
               non per le persone — ascoltando, coordinando e agendo.
             </p>
             <p className="text-lg text-brand-blue/70 leading-relaxed mb-8">
-              Dal 2010 costruiamo ponti tra cittadini, istituzioni e aziende per trasformare i
+              Dal 2020 costruiamo ponti tra cittadini, istituzioni e aziende per trasformare i
               diritti in realtà quotidiana.
             </p>
             <Link
