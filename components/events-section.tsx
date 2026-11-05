@@ -127,7 +127,9 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
           {'gallery' in event && event.gallery && event.gallery.length > 0 && (
             <div>
               <p className="mb-2 text-sm font-semibold text-brand-blue">
-                Sfoglia le card dell&apos;iniziativa
+                {'galleryLabel' in event && event.galleryLabel
+                  ? event.galleryLabel
+                  : 'Galleria fotografica'}
               </p>
               <ul className="grid grid-cols-4 gap-2" role="list">
                 {event.gallery.map((item) => (
@@ -175,22 +177,24 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
                 </Link>
               )}
 
-              {isExternal(event.ctaSecondary.href) ? (
-                <a
-                  href={event.ctaSecondary.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-blue-muted"
-                >
-                  {event.ctaSecondary.label}
-                </a>
-              ) : (
-                <Link
-                  href={event.ctaSecondary.href}
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-blue-muted"
-                >
-                  {event.ctaSecondary.label}
-                </Link>
+              {'ctaSecondary' in event && event.ctaSecondary && (
+                isExternal(event.ctaSecondary.href) ? (
+                  <a
+                    href={event.ctaSecondary.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-blue-muted"
+                  >
+                    {event.ctaSecondary.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={event.ctaSecondary.href}
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border-2 border-brand-blue/15 bg-white px-6 text-sm font-semibold text-brand-blue transition-colors hover:border-brand-blue/30 hover:bg-brand-blue-muted"
+                  >
+                    {event.ctaSecondary.label}
+                  </Link>
+                )
               )}
             </div>
 

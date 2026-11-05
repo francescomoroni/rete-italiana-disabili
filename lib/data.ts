@@ -36,9 +36,47 @@ export interface Project {
   fullDescription?: string[]
   gallery?: { src: string; alt: string }[]
   externalUrl?: string
+  ctaPrimary?: { label: string; href: string }
 }
 
 export const PROJECTS: Project[] = [
+  {
+    id: 'ecosistemi-di-cura',
+    slug: 'ecosistemi-di-cura',
+    title: 'Ecosistemi di Cura 2027',
+    category: 'Cura',
+    categoryColor: 'coral',
+    tags: ['cura', 'famiglie', 'partnership'],
+    year: '2027',
+    location: 'Da definire',
+    description:
+      "Sei un ente o un'azienda interessata al sociale? Diventa partner della prossima edizione di Ecosistemi di Cura.",
+    image: '/images/projects/ecosistemi-di-cura/image-1.webp',
+    href: '/progetti/ecosistemi-di-cura',
+    featured: true,
+    fullDescription: [
+      "Sei un ente o un'azienda interessata al sociale?",
+      'Puoi diventare partner della prossima edizione del progetto Ecosistemi di Cura.',
+      "Il progetto che si è appena concluso ha offerto alle famiglie un momento di sollievo dalla quotidianità, mettendo al centro ogni persona e i suoi bisogni: un weekend vissuto insieme, in un ambiente accogliente, tra attività, benessere, incontro e condivisione. Tanti gli operatori che hanno partecipato all'evento, mettendo a disposizione delle famiglie le proprie competenze.",
+      'Per maggiori info o per prendere parte al progetto, compila il form nella sezione Contattaci.',
+    ],
+    gallery: [
+      { src: '/images/projects/ecosistemi-di-cura/image-1.webp', alt: 'Ecosistemi di Cura — foto 1' },
+      { src: '/images/projects/ecosistemi-di-cura/image-2.webp', alt: 'Ecosistemi di Cura — foto 2' },
+      { src: '/images/projects/ecosistemi-di-cura/image-3.webp', alt: 'Ecosistemi di Cura — foto 3' },
+      { src: '/images/projects/ecosistemi-di-cura/image-4.webp', alt: 'Ecosistemi di Cura — foto 4' },
+      { src: '/images/projects/ecosistemi-di-cura/image-5.webp', alt: 'Ecosistemi di Cura — foto 5' },
+      { src: '/images/projects/ecosistemi-di-cura/image-6.webp', alt: 'Ecosistemi di Cura — foto 6' },
+      { src: '/images/projects/ecosistemi-di-cura/image-7.webp', alt: 'Ecosistemi di Cura — foto 7' },
+      { src: '/images/projects/ecosistemi-di-cura/image-8.webp', alt: 'Ecosistemi di Cura — foto 8' },
+      { src: '/images/projects/ecosistemi-di-cura/image-9.webp', alt: 'Ecosistemi di Cura — foto 9' },
+      { src: '/images/projects/ecosistemi-di-cura/image-10.webp', alt: 'Ecosistemi di Cura — foto 10' },
+      { src: '/images/projects/ecosistemi-di-cura/image-11.webp', alt: 'Ecosistemi di Cura — foto 11' },
+      { src: '/images/projects/ecosistemi-di-cura/image-12.webp', alt: 'Ecosistemi di Cura — foto 12' },
+      { src: '/images/projects/ecosistemi-di-cura/image-13.webp', alt: 'Ecosistemi di Cura — foto 13' },
+    ],
+    ctaPrimary: { label: 'Contattaci', href: '/contatti' },
+  },
   {
     id: 'zoo-safari-tour',
     slug: 'zoo-safari-tour',
@@ -625,6 +663,40 @@ export const PROJECTS: Project[] = [
 
 export const EVENTS = [
   {
+    id: 'ecosistemi-di-cura-2027',
+    title: 'Ecosistemi di Cura 2027',
+    eyebrow: 'Partnership',
+    date: '2027-01-01',
+    dateLabel: 'Edizione 2027',
+    time: 'Weekend di attività, benessere e condivisione',
+    location: 'Da definire',
+    type: 'Cura',
+    description:
+      "Sei un ente o un'azienda interessata al sociale?\n\nPuoi diventare partner della prossima edizione del progetto Ecosistemi di Cura.\n\nIl progetto che si è appena concluso ha offerto alle famiglie un momento di sollievo dalla quotidianità, mettendo al centro ogni persona e i suoi bisogni: un weekend vissuto insieme, in un ambiente accogliente, tra attività, benessere, incontro e condivisione. Tanti gli operatori che hanno partecipato all'evento, mettendo a disposizione delle famiglie le proprie competenze.\n\nPer maggiori info o per prendere parte al progetto, compila il form nella sezione Contattaci.",
+    image: '/images/projects/ecosistemi-di-cura/image-1.webp',
+    imageAlt:
+      'Ecosistemi di Cura: weekend di sollievo, attività e condivisione per famiglie e persone con disabilità',
+    featured: true,
+    galleryLabel: "Foto dell'edizione appena conclusa",
+    gallery: [
+      { src: '/images/projects/ecosistemi-di-cura/image-2.webp', alt: 'Ecosistemi di Cura — foto 2' },
+      { src: '/images/projects/ecosistemi-di-cura/image-3.webp', alt: 'Ecosistemi di Cura — foto 3' },
+      { src: '/images/projects/ecosistemi-di-cura/image-4.webp', alt: 'Ecosistemi di Cura — foto 4' },
+      { src: '/images/projects/ecosistemi-di-cura/image-5.webp', alt: 'Ecosistemi di Cura — foto 5' },
+      { src: '/images/projects/ecosistemi-di-cura/image-6.webp', alt: 'Ecosistemi di Cura — foto 6' },
+      { src: '/images/projects/ecosistemi-di-cura/image-7.webp', alt: 'Ecosistemi di Cura — foto 7' },
+      { src: '/images/projects/ecosistemi-di-cura/image-8.webp', alt: 'Ecosistemi di Cura — foto 8' },
+      { src: '/images/projects/ecosistemi-di-cura/image-9.webp', alt: 'Ecosistemi di Cura — foto 9' },
+      { src: '/images/projects/ecosistemi-di-cura/image-10.webp', alt: 'Ecosistemi di Cura — foto 10' },
+      { src: '/images/projects/ecosistemi-di-cura/image-11.webp', alt: 'Ecosistemi di Cura — foto 11' },
+      { src: '/images/projects/ecosistemi-di-cura/image-12.webp', alt: 'Ecosistemi di Cura — foto 12' },
+      { src: '/images/projects/ecosistemi-di-cura/image-13.webp', alt: 'Ecosistemi di Cura — foto 13' },
+    ],
+    ctaPrimary: { label: 'Contattaci', href: '/contatti' },
+    upcoming: true,
+    showOnHome: true,
+  },
+  {
     id: 'lavoro-dignita-inclusione-futuro',
     title: 'Il lavoro è dignità, inclusione e futuro!',
     eyebrow: 'Inclusione lavorativa',
@@ -684,6 +756,7 @@ export const EVENTS = [
     imageAlt:
       'A Tutto Campo – Padel Inclusivo: corso di padel inclusivo dalla collaborazione tra Rete Italiana Disabili e Tennis Club Vigna Fiorita',
     featured: false,
+    galleryLabel: "Sfoglia le card dell'iniziativa",
     gallery: [
       { src: '/images/home/eventi/a-tutto-campo-padel/card-2.webp', alt: 'A Tutto Campo – Padel Inclusivo — card 2' },
       { src: '/images/home/eventi/a-tutto-campo-padel/card-3.webp', alt: 'A Tutto Campo – Padel Inclusivo — card 3' },
@@ -849,6 +922,7 @@ export const WHO_WE_HELP = [
 
 export const PROJECT_CATEGORIES = [
   'Tutti',
+  '2027',
   '2026',
   '2025',
   '2024',

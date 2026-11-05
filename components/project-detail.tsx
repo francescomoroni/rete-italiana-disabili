@@ -208,6 +208,17 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </div>
         )}
 
+        {project.ctaPrimary && (
+          <div className="mb-10">
+            <Link
+              href={project.ctaPrimary.href}
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand-blue px-6 text-sm font-semibold text-white transition-colors hover:bg-brand-blue-dark"
+            >
+              {project.ctaPrimary.label}
+            </Link>
+          </div>
+        )}
+
         {/* Social share */}
         <div className="pt-8 border-t border-brand-blue/8">
           <SocialShareButtons

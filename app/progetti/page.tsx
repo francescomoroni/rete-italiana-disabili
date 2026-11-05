@@ -11,7 +11,7 @@ import { absoluteUrl, pageMetadata, SITE_NAME, SITE_URL } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   title: 'Progetti di inclusione',
   description:
-    'Scopri i progetti di Rete Italiana Disabili APS: sport inclusivo, cultura, salute, turismo accessibile e iniziative di solidarietà in tutta Italia.',
+    'Scopri i progetti di Rete Italiana Disabili APS: Ecosistemi di Cura 2027, sport inclusivo, cultura, salute, turismo accessibile e iniziative di solidarietà in tutta Italia.',
   path: '/progetti',
 })
 
