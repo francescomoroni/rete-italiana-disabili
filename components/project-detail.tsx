@@ -17,6 +17,7 @@ import type { Project } from '@/lib/data'
 import { PROJECTS } from '@/lib/data'
 import { SITE_URL } from '@/lib/seo'
 import SocialShareButtons from '@/components/social-share-buttons'
+import ImageSlideshow from '@/components/image-slideshow'
 
 const TAG_COLORS: Record<string, { bg: string; text: string }> = {
   sky: { bg: '#e8f5fb', text: '#1e9ed6' },
@@ -126,21 +127,30 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </div>
         </header>
 
-        {/* Central hero photo */}
+        {/* Central hero photo / slideshow */}
         <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-brand-blue-muted mb-10">
-          <Image
-            src={heroImage}
-            alt={project.title}
-            fill
-            priority
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 768px"
-            onError={() => {
-              setHeroImageAttempt((prev) =>
-                prev >= heroImageCandidates.length - 1 ? prev : prev + 1
-              )
-            }}
-          />
+          {project.heroSlides && project.heroSlides.length > 0 ? (
+            <ImageSlideshow
+              slides={project.heroSlides}
+              alt={project.title}
+              priority
+              objectFit="contain"
+            />
+          ) : (
+            <Image
+              src={heroImage}
+              alt={project.title}
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
+              onError={() => {
+                setHeroImageAttempt((prev) =>
+                  prev >= heroImageCandidates.length - 1 ? prev : prev + 1
+                )
+              }}
+            />
+          )}
         </div>
 
         {/* Body */}

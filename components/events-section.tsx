@@ -7,6 +7,7 @@ import { Calendar, Clock, MapPin, MessageCircle, ArrowRight } from 'lucide-react
 import { EVENTS } from '@/lib/data'
 import { SITE_URL } from '@/lib/seo'
 import SocialShareButtons from '@/components/social-share-buttons'
+import ImageSlideshow from '@/components/image-slideshow'
 
 type EventItem = (typeof EVENTS)[number]
 
@@ -47,6 +48,16 @@ function EventCard({ event, index }: { event: EventItem; index: number }) {
             >
               Il tuo browser non supporta la riproduzione video.
             </video>
+          ) : 'heroSlides' in event &&
+            event.heroSlides &&
+            event.heroSlides.length > 0 ? (
+            <ImageSlideshow
+              slides={event.heroSlides}
+              alt={event.imageAlt}
+              priority={event.featured}
+              objectFit="contain"
+              className="absolute inset-0"
+            />
           ) : (
             <Image
               src={event.image}

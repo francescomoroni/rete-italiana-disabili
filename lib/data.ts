@@ -35,6 +35,9 @@ export interface Project {
   partners?: string[]
   fullDescription?: string[]
   gallery?: { src: string; alt: string }[]
+  heroSlides?: { src: string; alt: string }[]
+  /** Card/thumbnail fit. Use `contain` for graphic posters with text/logos. */
+  imageFit?: 'cover' | 'contain'
   externalUrl?: string
   ctaPrimary?: { label: string; href: string }
 }
@@ -51,9 +54,28 @@ export const PROJECTS: Project[] = [
     location: 'Da definire',
     description:
       "Sei un ente o un'azienda interessata al sociale? Diventa partner della prossima edizione di Ecosistemi di Cura.",
-    image: '/images/projects/ecosistemi-di-cura/image-1.webp',
+    image: '/images/projects/ecosistemi-di-cura/dettagli/image-1.webp',
     href: '/progetti/ecosistemi-di-cura',
     featured: true,
+    imageFit: 'contain',
+    heroSlides: [
+      {
+        src: '/images/projects/ecosistemi-di-cura/dettagli/image-1.webp',
+        alt: 'Ecosistemi di Cura — slide 1',
+      },
+      {
+        src: '/images/projects/ecosistemi-di-cura/dettagli/image-2.webp',
+        alt: 'Ecosistemi di Cura — slide 2',
+      },
+      {
+        src: '/images/projects/ecosistemi-di-cura/dettagli/image-3.webp',
+        alt: 'Ecosistemi di Cura — slide 3',
+      },
+      {
+        src: '/images/projects/ecosistemi-di-cura/dettagli/image-4.webp',
+        alt: 'Ecosistemi di Cura — slide 4',
+      },
+    ],
     fullDescription: [
       "Sei un ente o un'azienda interessata al sociale?",
       'Puoi diventare partner della prossima edizione del progetto Ecosistemi di Cura.',
@@ -673,10 +695,28 @@ export const EVENTS = [
     type: 'Cura',
     description:
       "Sei un ente o un'azienda interessata al sociale?\n\nPuoi diventare partner della prossima edizione del progetto Ecosistemi di Cura.\n\nIl progetto che si è appena concluso ha offerto alle famiglie un momento di sollievo dalla quotidianità, mettendo al centro ogni persona e i suoi bisogni: un weekend vissuto insieme, in un ambiente accogliente, tra attività, benessere, incontro e condivisione. Tanti gli operatori che hanno partecipato all'evento, mettendo a disposizione delle famiglie le proprie competenze.\n\nPer maggiori info o per prendere parte al progetto, compila il form nella sezione Contattaci.",
-    image: '/images/projects/ecosistemi-di-cura/image-1.webp',
+    image: '/images/projects/ecosistemi-di-cura/dettagli/image-1.webp',
     imageAlt:
       'Ecosistemi di Cura: weekend di sollievo, attività e condivisione per famiglie e persone con disabilità',
     featured: true,
+    heroSlides: [
+      {
+        src: '/images/projects/ecosistemi-di-cura/dettagli/image-1.webp',
+        alt: 'Ecosistemi di Cura — slide 1',
+      },
+      {
+        src: '/images/projects/ecosistemi-di-cura/dettagli/image-2.webp',
+        alt: 'Ecosistemi di Cura — slide 2',
+      },
+      {
+        src: '/images/projects/ecosistemi-di-cura/dettagli/image-3.webp',
+        alt: 'Ecosistemi di Cura — slide 3',
+      },
+      {
+        src: '/images/projects/ecosistemi-di-cura/dettagli/image-4.webp',
+        alt: 'Ecosistemi di Cura — slide 4',
+      },
+    ],
     galleryLabel: "Foto dell'edizione appena conclusa",
     gallery: [
       { src: '/images/projects/ecosistemi-di-cura/image-2.webp', alt: 'Ecosistemi di Cura — foto 2' },
